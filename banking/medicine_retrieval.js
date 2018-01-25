@@ -38,8 +38,6 @@ function hitQuery() {
 
 module.exports = {
     
-    
-
     metadata: () => ({
         "name": "MedicineRetrieval",
         "properties": {
@@ -62,10 +60,6 @@ module.exports = {
         }).catch(err => {
             reject(err);
         });
-
-
-
-
 
         done();
     }
