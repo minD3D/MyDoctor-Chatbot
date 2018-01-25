@@ -1,0 +1,57 @@
+[
+  {
+    "date": "2017-01-20T10:34:31Z",
+    "type" : "deposit",
+    "amount": 230.45
+  },
+  {
+    "date": "2017-01-22T10:34:31Z",
+    "type" : "withdrawal",
+    "amount": -100.00
+  },
+  {
+    "date": "2017-03-20T10:34:31Z",
+    "type" : "withdrawal",
+    "amount": -5.00
+  },
+  {
+    "date": "2017-03-22T10:34:31Z",
+    "type" : "deposit",
+    "amount": 952.00
+  },
+  {
+    "date": "2017-03-22T10:34:31Z",
+    "type" : "deposit",
+    "amount": 952.00
+  },
+  {
+    "date": "2017-03-23T10:34:31Z",
+    "type" : "deposit",
+    "amount": 111.11
+  },
+  {
+    "date": "2017-03-24T10:34:31Z",
+    "type" : "deposit",
+    "amount": 500.00
+  },
+  {
+    "date": "2017-04-15T10:34:31Z",
+    "type" : "withdrawal",
+    "amount": -60.00
+  },
+  {
+    "date": "2017-04-16T10:34:31Z",
+    "type" : "deposit",
+    "amount": 50.00
+  },
+  {
+    "date": "2017-04-25T10:34:31Z",
+    "type" : "deposit",
+    "amount": 20.00
+  },
+  {
+    "date": "2017-04-26T10:34:31Z",
+    "type" : "withdrawal",
+    "amount": -40.00
+  }
+]
