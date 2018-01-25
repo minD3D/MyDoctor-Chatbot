@@ -1,8 +1,44 @@
 "use strict"
 
-var MedicineService = require('./MedicineService');
+// var MedicineService = require('./MedicineService');
+
+var express = require("express");
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    // connectionLimit: 100,
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'medicine_test'
+});
+
+var medicine_name = [];
+
+function hitQuery() {
+    return new Promise((resolve, reject) => {
+        connection.connect();
+        connection.query('SELECT * FROM medicine_list WHERE name = "유카본정"', (err, rows) => {
+            // console.log(rows);
+            // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
+            // connection.release();
+            if (err) {
+                reject();
+                throw err;
+            }
+
+            medicine_name = rows;
+
+            resolve();
+        });
+
+
+    });
+
+}
 
 module.exports = {
+
+
 
     metadata: () => ({
         "name": "MedicineRetrieval",
@@ -15,29 +51,21 @@ module.exports = {
     }),
 
     invoke: (conversation, done) => {
-        //사용자가 입력한 문장에서(properties) medicineName 엔티티를 추출한다.
-        // var medicineName = conversation.properties().medicineName;
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBB' + medicineName);
-        
+        // var _medicine_name = [];
+        var promise = hitQuery().then(() => {
+            // _medicine_name = medicine_name;
+            console.log(medicine_name);
+            console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
+            // return _medicine_name;
+            // var medicines = MedicineService.medicines();
+            conversation.reply({ text: '컴포넌트에서 출력한 대답입니다.' + medicine_name });
+        }).catch(err => {
+            reject(err);
+        });
 
-        // var medicines = MedicineService.medicines(medicineName);
-        var medicines = MedicineService.medicines();
-        // console.log(medicines);
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB');
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBB' + medicine);
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBB' + medicine[0]);
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBB' + medicine.name);
-        // console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBB' + medicine[0].name);
-        // if(medicines) {
-            // var medicine = medicines[0];
-            conversation.reply({text: '컴포넌트에서 출력한 대답입니다.' + medicines});
-        // } 
-        // else {
-            // conversation.reply({text: '컴포넌트에서 출력한 대답입니다. medicine가 비어있습니다.'});
-        // }
-        
 
-        // conversation.transisition();
+
+
 
         done();
     }
