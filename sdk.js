@@ -254,7 +254,7 @@ const ComponentInvocation = class {
          if (!postback) {
             postback = this._postback10();
          }
-         logger.info('SDK: Retrieving request postback=' + postback);
+        //  logger.info('SDK: Retrieving request postback=' + postback);
          return postback;
      }
 
@@ -296,7 +296,7 @@ const ComponentInvocation = class {
         if (!text) {
           text = this._text10();
         }
-        logger.info('SDK: Retrieving request text=' + text);
+        // logger.info('SDK: Retrieving request text=' + text);
         return text;
     }
 
@@ -312,7 +312,7 @@ const ComponentInvocation = class {
         if (messagePayload && messagePayload.attachment) {
             attachment = messagePayload.attachment;
         }
-        logger.info('SDK: Retrieving request attachment=' + attachment);
+        // logger.info('SDK: Retrieving request attachment=' + attachment);
         return attachment;
     }
 
@@ -328,7 +328,7 @@ const ComponentInvocation = class {
         if (messagePayload && messagePayload.location) {
             location = messagePayload.location;
         }
-        logger.info('SDK: Retrieving request location=' + location);
+        // logger.info('SDK: Retrieving request location=' + location);
         return location;
     }
 
@@ -397,7 +397,7 @@ const ComponentInvocation = class {
             return context.variables[nameToUse].value;
         }
         else {
-            logger.info('SDK: About to set variable ' + name);
+            // logger.info('SDK: About to set variable ' + name);
 
             if (!context.variables)
             {

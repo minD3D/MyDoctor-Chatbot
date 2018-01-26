@@ -15,7 +15,7 @@ module.exports = {
 
     invoke: (conversation, done) => {
         var accountType = conversation.properties().accountType;
-        conversation.logger().info('BalanceRetrieval: getting balance for account type=' + accountType);
+        // conversation.logger().info('BalanceRetrieval: getting balance for account type=' + accountType);
 
         //날짜를 받아와 월급날까지를 계산     
         var today = new Date();
@@ -26,7 +26,7 @@ module.exports = {
         var accounts = AccountService.accounts(accountType);
         if (accounts.length > 0) {
             var account = accounts[0];
-            conversation.logger().info('BalanceRetrieval: account id ' + account.id + ' balance=' + account.balance());
+            // conversation.logger().info('BalanceRetrieval: account id ' + account.id + ' balance=' + account.balance());
             if (accountType === 'credit card') {
                 conversation.reply({ text: '신용카드의 (' + account.id + ') 남은 한도는 $' + String(account.remainingLimit()) + '입니다.' });
                 //대답 하는 부분 수정
@@ -36,7 +36,7 @@ module.exports = {
 
         }
         else {
-            conversation.logger().info('BalanceRetrieval: no accounts of specified type found!');
+            // conversation.logger().info('BalanceRetrieval: no accounts of specified type found!');
             conversation.reply({ text: '죄송합니다, ' + accountType + ' 라는 계좌가 존재하지 않아요.' });
         }
         conversation.transition();
