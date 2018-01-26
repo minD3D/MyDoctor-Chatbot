@@ -1,3 +1,5 @@
+// import { json } from "../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/body-parser";
+
 // import { stringify } from "querystring";
 
 "use strict"
@@ -48,19 +50,29 @@ module.exports = {
 
     invoke: (conversation, done) => {
         // var _medicine_name = [];
+        var uk_url = 'http://dbscthumb.phinf.naver.net/3323_000_2/20160623151337534_GZC8PHM54.jpg/0bg84r2ws0vza02.jpg?type=m250&wm=N';
+
+        // var reply_form = {
+        //     type: 'text',
+        //     text: 'test'
+        // }
+        var _attachment = {
+            type: 'image',
+            url: uk_url
+        }
+
         var promise = hitQuery().then(() => {
-            // _medicine_name = medicine_name;
-            // console.log(medicine_name);
-            // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
-            // return _medicine_name;
-            // var medicines = MedicineService.medicines();
-            conversation.reply({ text: '컴포넌트에서 출력한 대답입니다.' + JSON.stringify(medicine_name[0].name) });
+
+            conversation.reply({ text: '약이름 : ' + JSON.stringify(medicine_name[0].name) });
             
+            // 카카오톡에서 에러남.
+            // conversation.reply({ type: 'attachment', attachment: _attachment });
+
             done();
         }).catch(err => {
             reject(err);
         });
-        
-        
+
+
     }
 };
