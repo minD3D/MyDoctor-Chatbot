@@ -1,5 +1,7 @@
 "use strict"
 
+var hangul = require('../hangul_processing/hangultest.js')
+
 var express = require("express");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -12,16 +14,10 @@ var connection = mysql.createConnection({
 
 var medicine_name = [];
 
-function hitQuery(medicine) {
+function hitQuery(GeneralMedicineName) {
     return new Promise((resolve, reject) => {
         // connection.connect();
-        connection.query('SELECT * FROM medicine_list WHERE name = "' + medicine + '"', (err, rows) => {
-            // console.log(rows);
-            // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
-            // if (err) {
-            //     reject();
-            //     throw err;
-            // }
+        connection.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
 
             medicine_name = rows;
 
@@ -39,48 +35,60 @@ module.exports = {
     metadata: () => ({
         "name": "MedicineRetrieval",
         "properties": {
-            "medicineName": { "type": "string", "required": true },
-            "lastQuestion": { "type": "string", "required": true }
+            "medicineName": { "type": "string", "required": true }
         },
         "supportedActions": []
     }),
 
     invoke: (conversation, done) => {
-        // var _medicine_name = [];
-        var uk_url = 'http://dbscthumb.phinf.naver.net/3323_000_2/20160623151337534_GZC8PHM54.jpg/0bg84r2ws0vza02.jpg?type=m250&wm=N';
 
-        var _attachment = {
-            type: 'image',
-            url: uk_url
-        }
-
-        var medicine = conversation.properties().lastQuestion;
-
-        console.log(conversation.properties().lastQuestion);
+        var InputMedicineName = conversation.messagePayload().text;
+        var GeneralMedicineName = hangul.hanguler(InputMedicineName);
+        
+        console.log(GeneralMedicineName);
         console.log('----------------------------------------------------------------------------------------------');
-
-        var promise = hitQuery(medicine).then(() => {
-
+        
+        
+        var promise = hitQuery(GeneralMedicineName).then(() => {
+            var name = medicine_name[0].name;
+            var efficacy = medicine_name[0].efficacy;
+            var howToUse = medicine_name[0].howtouse;
+            var precaution = medicine_name[0].precaution;
+            var originalUrl = medicine_name[0].originalurl;
+            var imgUrl = medicine_name[0].imgurl;
+            
+            var _attachment = {
+                type: 'image',
+                url: imgUrl
+            }
             // reply in facebook
             conversation.reply({
-                text: '약이름 : ' + JSON.stringify(medicine_name[0].name)
+                text: '약이름 : ' + name
             });
             conversation.reply({
                 type: 'attachment',
                 attachment: _attachment
             });
-
-            // test in kakaotalk -> success
             conversation.reply({
-                message: {
-                    text: '약이름 : ' + JSON.stringify(medicine_name[0].name),
-                    photo: { url: uk_url, width: 640, height: 480 }
-                },
-                keyboard: {
-                    type: 'buttons',
-                    buttons: ['가', '나', '다']
-                }
+                text: '효능 : ' + efficacy
             });
+            conversation.reply({
+                text: '용법 : ' + howToUse
+            });
+            conversation.reply({
+                text: '주의사항 : ' + precaution
+            });
+            conversation.reply({
+                text: '자세한 정보 : ' + originalUrl
+            });
+            
+            // test in kakaotalk -> success
+            // conversation.reply({
+            //     message: {
+            //         text: '약이름 : ' + name,
+            //         photo: { url: '' + imgUrl, width: 640, height: 480 }
+            //     }
+            // });
 
             done();
         }).catch(err => {
@@ -89,3 +97,4 @@ module.exports = {
 
     }
 };
+
