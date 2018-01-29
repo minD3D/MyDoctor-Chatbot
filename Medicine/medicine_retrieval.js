@@ -1,24 +1,42 @@
 // import { stringify } from "querystring";
+
 "use strict"
 
 // var MedicineService = require('./MedicineService');
+
 var express = require("express");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: '1q2w3e4r5t',
-    database: 'medicinedata'
+    password: 'Sidomari93',
+    database: 'medicine_test'
 });
 
-var medicine_name = [];
+//if(connection.state === 'disconnected'){
+//    return respond(null, {status:'fail', message:'server down'});
+//}
 
-function hitQuery() {
+var medicine_name = [];
+var searching_medicine = '';
+
+function hitQuery(medicine_question) {
+
     return new Promise((resolve, reject) => {
-        // connection.connect();
-        connection.query('SELECT * FROM medicine_list WHERE name = "유카본정"', (err, rows) => {
+        console.log(medicine_question+'*********************************');
+        //connection.query('SELECT * FROM medicine_list WHERE name ='+searching_medicine+'', 
+        //connection.query('SELECT * FROM medicine_list WHERE name = "'+ searching_medicine +'"'
+        connection.query('SELECT * FROM medicine_list WHERE name = "'+ medicine_question +'"', (err, rows) => {
+            //console.log(rows);
+            //console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
+            // if (err) {
+            //     reject();
+            //     throw err;
+            // }
+
             medicine_name = rows;
+            console.log(rows);
 
             resolve();
         });
@@ -32,26 +50,36 @@ module.exports = {
     metadata: () => ({
         "name": "MedicineRetrieval",
         "properties": {
-            "medicineName": { "type": "string", "required": true }
+            "medicines": { "type": "string", "required": true },
+            "lastQuestion": { "type": "string", "required": true }
         },
         "supportedActions": []
     }),
 
     invoke: (conversation, done) => {
         // var _medicine_name = [];
-        var promise = hitQuery().then(() => {
+        searching_medicine = conversation.properties().medicines;
+        console.log(searching_medicine+'*******************약이름출력***********************'); //챗봇에서 넘어오는 약 이름 찍기
+        var medicine_question = conversation.properties().lastQuestion;
+        
+        var promise = hitQuery(medicine_question).then(() => {
             // _medicine_name = medicine_name;
             // console.log(medicine_name);
             // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
             // return _medicine_name;
             // var medicines = MedicineService.medicines();
-            conversation.reply({ text: '컴포넌트에서 출력한 대답입니다.' + JSON.stringify(medicine_name[0].name) });
-            
+
+            //conversation.reply({ text: JSON.stringify(searching_medicine) + ' '});
+            conversation.reply({ text: JSON.stringify(medicine_name[0].name) + '의 정보가 궁금하시군요! 잠시만요~\n(컴포넌트에서 출력)'});
+            conversation.reply({ text: '[효능효과]\n' + JSON.stringify(medicine_name[0].efficacy) + '\n' });
+            conversation.reply({ text: '[용법용량]\n' + JSON.stringify(medicine_name[0].howtouse) + '\n' });
+            conversation.reply({ text: '[주의사항]\n' + JSON.stringify(medicine_name[0].precaution) });
+
             done();
         }).catch(err => {
             reject(err);
         });
-        
-        
+
+
     }
 };
