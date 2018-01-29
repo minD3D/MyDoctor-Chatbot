@@ -1,17 +1,15 @@
 // import { stringify } from "querystring";
-
 "use strict"
 
 // var MedicineService = require('./MedicineService');
-
 var express = require("express");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'root',
-    database: 'medicine_test'
+    password: '1q2w3e4r5t',
+    database: 'medicinedata'
 });
 
 var medicine_name = [];
@@ -20,13 +18,6 @@ function hitQuery() {
     return new Promise((resolve, reject) => {
         // connection.connect();
         connection.query('SELECT * FROM medicine_list WHERE name = "유카본정"', (err, rows) => {
-            // console.log(rows);
-            // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
-            // if (err) {
-            //     reject();
-            //     throw err;
-            // }
-
             medicine_name = rows;
 
             resolve();
