@@ -1,0 +1,59 @@
+metadata:
+  platformVersion: "1.0"
+main: true
+name: "MyDoctor"
+context:
+  variables:
+    lastQuestion: "string"
+    inputMedicine: "string"
+   # medicines: "Medicine"
+    iResult: "nlpresult"
+states:
+  intent:
+    component: "System.Intent"
+    properties:
+      variable: "iResult"
+      confidenceThreshold: 0.4
+    transitions:
+      actions:
+        AskDrug: "askMedicine"
+        unresolvedIntent: "unresolved"
+ # setMedicine:
+  #  component: "System.SetVariable"
+   # properties:
+   #   variable: "inputMedicine"
+    #  value: "${iResult.value.query}"
+   # transitions: {} 
+   
+  askMedicine:
+    component: "System.Output"
+    properties:
+      text: "약 이름을 입력해주세요."
+    transitions: {} 
+  aswMedicine:
+    component: "System.SetVariable"
+    properties:
+      variable: "inputMedicine"
+      value: "${iResult.value.query}"
+    transitions: {} 
+#  printMedicine:
+ #   component: "System.Output"
+  #  properties:
+   #   text: "${iResult.value.query}의 정보가 궁금하시군요! 잠시만요~"
+   # transitions:
+    #  return: "printMedicineName"
+  
+  printMedicineName:
+    component: "MedicineRetrieval"
+    properties:
+     medicines: "${iResult.value.query}"
+     lastQuestion: "${iResult.value.query}"
+    transitions:
+     return: "printMedicineName"
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "약 정보를 가져오지 못했어요. 죄송해요ㅠㅠ"
+    transitions:
+      return: "unresolved"    
+  

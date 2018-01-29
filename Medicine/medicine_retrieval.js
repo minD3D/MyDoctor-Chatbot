@@ -2,6 +2,8 @@
 
 "use strict"
 
+var Hangultest = require('../hangultest.js');
+
 // var MedicineService = require('./MedicineService');
 
 var express = require("express");
@@ -10,8 +12,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'Sidomari93',
-    database: 'medicine_test'
+    password: '1q2w3e4r5t',
+    database: 'medicineData'
 });
 
 //if(connection.state === 'disconnected'){
@@ -24,10 +26,10 @@ var searching_medicine = '';
 function hitQuery(medicine_question) {
 
     return new Promise((resolve, reject) => {
-        console.log(medicine_question+'*********************************');
+        //console.log(medicine_question+'*********************************');
         //connection.query('SELECT * FROM medicine_list WHERE name ='+searching_medicine+'', 
         //connection.query('SELECT * FROM medicine_list WHERE name = "'+ searching_medicine +'"'
-        connection.query('SELECT * FROM medicine_list WHERE name = "'+ medicine_question +'"', (err, rows) => {
+        connection.query('SELECT * FROM medicine_list WHERE synonyms = "'+ medicine_question +'"', (err, rows) => {
             //console.log(rows);
             //console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
             // if (err) {
@@ -58,17 +60,18 @@ module.exports = {
 
     invoke: (conversation, done) => {
         // var _medicine_name = [];
-        searching_medicine = conversation.properties().medicines;
-        console.log(searching_medicine+'*******************약이름출력***********************'); //챗봇에서 넘어오는 약 이름 찍기
-        var medicine_question = conversation.properties().lastQuestion;
+        var medicine_question = conversation.messagePayload().text;
+        var synonyms = Hangultest.hanguler(medicine_question);
+        console.log(medicine_question);
+        console.log(synonyms);
         
-        var promise = hitQuery(medicine_question).then(() => {
+        var promise = hitQuery(synonyms).then(() => {
             // _medicine_name = medicine_name;
             // console.log(medicine_name);
             // console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
             // return _medicine_name;
             // var medicines = MedicineService.medicines();
-
+            
             //conversation.reply({ text: JSON.stringify(searching_medicine) + ' '});
             conversation.reply({ text: JSON.stringify(medicine_name[0].name) + '의 정보가 궁금하시군요! 잠시만요~\n(컴포넌트에서 출력)'});
             conversation.reply({ text: '[효능효과]\n' + JSON.stringify(medicine_name[0].efficacy) + '\n' });
