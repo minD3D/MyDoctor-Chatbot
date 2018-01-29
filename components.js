@@ -20,7 +20,7 @@ var createComponentsServer = function (urlPath, config) {
     var logger = (config ? config.logger : null);
     if (!logger) {
         logger = console;
-        // logger.info("components.js create console logger");
+        logger.info("components.js create console logger");
     }
     config = config || {};
     config.logger = logger;
@@ -63,7 +63,7 @@ var createComponentsServer = function (urlPath, config) {
 
     app.use(urlPath, router);
 
-    // logger.info('Express server: component server created at context path=' + urlPath);
+    logger.info('Express server: component server created at context path=' + urlPath);
 
     app.locals.endpoints = [];
     app.locals.endpoints.push({

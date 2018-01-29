@@ -15,7 +15,7 @@ module.exports = {
 
     invoke: (conversation, done) => {
         var accountType = conversation.properties().accountType;
-        // conversation.logger().info('BalanceRetrieval: getting balance for account type=' + accountType);
+        conversation.logger().info('BalanceRetrieval: getting balance for account type=' + accountType);
 
         //날짜를 받아와 월급날까지를 계산     
         var today = new Date();
