@@ -53,23 +53,39 @@ module.exports = {
             type: 'image',
             url: uk_url
         }
-        
+
         var medicine = conversation.properties().lastQuestion;
-        
+
         console.log(conversation.properties().lastQuestion);
         console.log('----------------------------------------------------------------------------------------------');
 
         var promise = hitQuery(medicine).then(() => {
-            
-            conversation.reply({ text: '약이름 : ' + JSON.stringify(medicine_name[0].name) });
-            
-            // 카카오톡에서 에러남.
-            // conversation.reply({ type: 'attachment', attachment: _attachment });
-            
+
+            // reply in facebook
+            conversation.reply({
+                text: '약이름 : ' + JSON.stringify(medicine_name[0].name)
+            });
+            conversation.reply({
+                type: 'attachment',
+                attachment: _attachment
+            });
+
+            // test in kakaotalk -> success
+            conversation.reply({
+                message: {
+                    text: '약이름 : ' + JSON.stringify(medicine_name[0].name),
+                    photo: { url: uk_url, width: 640, height: 480 }
+                },
+                keyboard: {
+                    type: 'buttons',
+                    buttons: ['가', '나', '다']
+                }
+            });
+
             done();
         }).catch(err => {
             reject(err);
         });
-        
+
     }
 };
