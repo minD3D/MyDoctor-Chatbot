@@ -5,8 +5,8 @@ var hangul = require('../hangul_processing/hangultest.js');
 
 var express = require("express");
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    // connectionLimit: 100,
+var pool = mysql.createPool({
+    connectionLimit: 100,
     host: 'localhost',
     user: 'root',
     password: 'root',
@@ -18,13 +18,9 @@ var medicine_name = [];
 function hitQuery(GeneralMedicineName) {
     return new Promise((resolve, reject) => {
         // connection.connect();
-        connection.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
+        var sql = 'SELECT * FROM medicine_list WHERE generalname like "' + GeneralMedicineName + '%"';
+        pool.query(sql, (err, rows) => {
 
-            // if (err) {
-            //     reject(Error(err));
-            //     medicine_name = 'no data';
-            // }
-            // else {
             medicine_name = rows;
             resolve();
             // }
@@ -37,13 +33,11 @@ function hitQuery(GeneralMedicineName) {
 
 var test = [];
 function hitQueryReturnRows(GeneralMedicineName, callback) {
-    connection.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
+    pool.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
         if (err)
             callback(err, null);
         else {
-            test = rows;
-            console.log(test + '------------------------------------------------------');
-            // callback(null, rows);
+            callback(null, rows);
         }
     });
 }
@@ -65,12 +59,12 @@ module.exports = {
         var InputMedicineName = conversation.messagePayload().text;
         var GeneralMedicineName = hangul.hanguler(InputMedicineName);
 
-        console.log('----------------------------------------------------------------------------------------------------------');
+        // console.log('----------------------------------------------------------------------------------------------------------');
         var _rows = hitQueryReturnRows(GeneralMedicineName, (err, rows) => {
             _rows = rows;
         });
         console.log(_rows);
-        console.log('----------------------------------------------------------------------------------------------------------');
+        // console.log('----------------------------------------------------------------------------------------------------------');
 
 
         var promise = hitQuery(GeneralMedicineName).then(() => {
