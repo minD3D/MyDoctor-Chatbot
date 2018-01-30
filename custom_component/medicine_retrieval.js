@@ -35,18 +35,22 @@ function hitQuery(GeneralMedicineName) {
 
 }
 
+var test = [];
+function hitQueryReturnRows(GeneralMedicineName, callback) {
+    connection.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
+        if (err)
+            callback(err, null);
+        else {
+            test = rows;
+            console.log(test + '------------------------------------------------------');
+            // callback(null, rows);
+        }
+    });
+}
+
 
 
 module.exports = {
-    hitQueryTest: (GeneralMedicineName) => {
-        return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
-                medicine_name = rows;
-                resolve();
-            });
-        });
-
-    },
 
     metadata: () => ({
         "name": "MedicineRetrieval",
@@ -61,9 +65,12 @@ module.exports = {
         var InputMedicineName = conversation.messagePayload().text;
         var GeneralMedicineName = hangul.hanguler(InputMedicineName);
 
-        console.log('----------------------------------------------------------------------------------------------');
-        console.log(conversation.channelType());
-        console.log('----------------------------------------------------------------------------------------------');
+        console.log('----------------------------------------------------------------------------------------------------------');
+        var _rows = hitQueryReturnRows(GeneralMedicineName, (err, rows) => {
+            _rows = rows;
+        });
+        console.log(_rows);
+        console.log('----------------------------------------------------------------------------------------------------------');
 
 
         var promise = hitQuery(GeneralMedicineName).then(() => {
@@ -112,7 +119,9 @@ module.exports = {
                 // });
 
                 conversation.transition();
+
                 done();
+
             }
 
         }).catch(err => {
