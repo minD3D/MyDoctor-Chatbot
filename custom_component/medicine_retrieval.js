@@ -56,12 +56,15 @@ module.exports = {
         var GeneralMedicineName = hangul.hanguler(InputMedicineName);
 
         // callback testing
-        console.log('----------------------------------------------------------------------------------------------------------');
-        var _data = hitQueryReturnRows(GeneralMedicineName, (err, data) => {
-            console.log(data);
-        });
-        // console.log(_data);
-        console.log('----------------------------------------------------------------------------------------------------------');
+        // console.log('----------------------------------------------------------------------------------------------------------');
+        // var _data = hitQueryReturnRows(GeneralMedicineName, (err, data) => {
+        //     console.log(data);
+        // });
+        // // console.log(_data);
+        // console.log('----------------------------------------------------------------------------------------------------------');
+
+
+
 
         var promise = hitQuery(GeneralMedicineName).then(() => {
             var name = medicine_name[0].name;
@@ -71,30 +74,82 @@ module.exports = {
             var originalUrl = medicine_name[0].originalurl;
             var imgUrl = medicine_name[0].imgurl;
 
-            var _attachment = {
-                type: 'image',
-                url: imgUrl
-            }
-            // reply in facebook
+            var recid = conversation.payload().recipient.id;
+
+            console.log('----------------------------------------------------------------------------------------------------------');
+            // console.log(conversation.reply().messagePayload);
+            console.log('----------------------------------------------------------------------------------------------------------');
+
+            // var _attachment_tem = {
+            //     type: 'template',
+            //     // payload: {
+            //         template_type: 'generic',
+            //         elements: [
+            //             {
+            //                 title: '템플릿 테스트',
+            //                 image_url: imgUrl,
+            //                 subtitle: name,
+            //                 default_action: {
+            //                     type: 'web_url',
+            //                     url: originalUrl,
+            //                     messenger_extensions: true,
+            //                     webview_height_ratio: 'tall'
+            //                 }
+            //             }
+            //         ]
+            //     // }
+            // }
+
+            // 버튼은 됨
             conversation.reply({
-                text: '약이름 : ' + name
+                attachment: {
+                    type: 'template',
+                    payload: {
+                        template_type: 'button',
+                        text: name + '링크로 이동',
+                        buttons: [
+                            {
+                                type: 'web_url',
+                                url: originalUrl,
+                                title: name
+                            }
+                        ]
+                    }
+                }
             });
+
+            
             conversation.reply({
-                type: 'attachment',
-                attachment: _attachment
+
             });
-            conversation.reply({
-                text: '효능 : ' + efficacy
-            });
-            conversation.reply({
-                text: '용법 : ' + howToUse
-            });
-            conversation.reply({
-                text: '주의사항 : ' + precaution
-            });
-            conversation.reply({
-                text: '자세한 정보 : ' + originalUrl
-            });
+
+            // reply
+            // conversation.reply({
+            //     text: '약이름 : ' + name
+            // });
+            // conversation.reply({
+            //     type: 'attachment',
+            //     attachment: {
+            //         type: 'image',
+            //         url: imgUrl
+            //     }
+            // });
+
+            // conversation.reply({
+            //     text: '효능 : ' + efficacy
+            // });
+            // conversation.reply({
+            //     text: '용법 : ' + howToUse
+            // });
+            // conversation.reply({
+            //     text: '주의사항 : ' + precaution
+            // });
+            // conversation.reply({
+            //     text: '자세한 정보 : ' + originalUrl
+            // });
+
+
+
 
             conversation.transition();
             done();
@@ -107,6 +162,7 @@ module.exports = {
             conversation.transition();
             done();
         });
+
     }
 };
 
