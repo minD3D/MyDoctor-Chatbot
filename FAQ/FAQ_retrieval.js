@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1q2w3e4r5t',
-    database: 'medicineDate'
+    database: 'medicineData'
 });
 
 //if(connection.state === 'disconnected'){
@@ -28,7 +28,7 @@ function hitQuery(FAQ_question) {
         connection.query(sql, (err, rows) => {
 
             FAQ_name = rows;
-            console.log(rows);
+            console.log(rows+"");
 
             resolve();
         });
@@ -42,6 +42,7 @@ module.exports = {
     metadata: () => ({
         "name": "FAQRetrieval",
         "properties": {
+            "Questions": { "type": "string", "required": true }
         },
         "supportedActions": []
     }),
@@ -52,11 +53,10 @@ module.exports = {
         
         var promise = hitQuery(FAQ_question).then(() => {
             try{
-                conversation.reply({ text: JSON.stringify(FAQ_name[0].name) + ' 정보가 궁금하시군요! \n'});
-                conversation.reply({ text: '[질문]\n' + JSON.stringify(FAQ_name[0].Question) + '\n' });
+                conversation.reply({ text: '[질문]\n' + FAQ_name[0].Question + '\n' });
                 if(FAQ_name[0].Answer!=null)
-                conversation.reply({ text: '[답변]\n' + JSON.stringify(FAQ_name[0].Answer) + '\n' });
-                conversation.reply({ text: '[페이지보기]\n' + JSON.stringify(FAQ_name[0].url) });
+                conversation.reply({ text: '[답변]\n' + FAQ_name[0].Answer + '\n' });
+                conversation.reply({ text: '[페이지보기]\n' + FAQ_name[0].url });
             
             } catch(e){ //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + FAQ_question + '의 정보를 가져오지 못했어요. 죄송해요 :(' });
