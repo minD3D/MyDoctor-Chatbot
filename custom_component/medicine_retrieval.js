@@ -21,7 +21,7 @@ function hitQuery(GeneralMedicineName) {
         pool.query(sql, (err, rows) => {
             // when data is null
             if (err) {
-                reject(new Error(err));
+                reject(Error(err));
             }
             // when data is not null
             else {
@@ -30,6 +30,14 @@ function hitQuery(GeneralMedicineName) {
             }
         });
     });
+}
+
+// testing callback: not affect to the bot
+function hitQueryReturnRows(GeneralMedicineName, callback) {
+    pool.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
+        callback(null, rows);
+    });
+
 }
 
 module.exports = {
@@ -46,6 +54,14 @@ module.exports = {
         // process input name to general name
         var InputMedicineName = conversation.messagePayload().text;
         var GeneralMedicineName = hangul.hanguler(InputMedicineName);
+
+        // callback testing
+        console.log('----------------------------------------------------------------------------------------------------------');
+        var _data = hitQueryReturnRows(GeneralMedicineName, (err, data) => {
+            console.log(data);
+        });
+        // console.log(_data);
+        console.log('----------------------------------------------------------------------------------------------------------');
 
         var promise = hitQuery(GeneralMedicineName).then(() => {
             var name = medicine_name[0].name;
@@ -96,27 +112,10 @@ module.exports = {
 
 
 
-/* // test in kakaotalk -> success
+/* // test in kakaotalk
 conversation.reply({
     message: {
         text: '약이름 : ' + name,
         photo: { url: '' + imgUrl, width: 640, height: 480 }
     }
 }); */
-
-/* function hitQueryReturnRows(GeneralMedicineName, callback) {
-    pool.query('SELECT * FROM medicine_list WHERE generalname = "' + GeneralMedicineName + '"', (err, rows) => {
-        if (err)
-            callback(err, null);
-        else {
-            callback(null, rows);
-        }
-    });
-}
-
-console.log('----------------------------------------------------------------------------------------------------------');
-var _rows = hitQueryReturnRows(GeneralMedicineName, (err, rows) => {
-    _rows = rows;
-});
-console.log(_rows);
-console.log('----------------------------------------------------------------------------------------------------------'); */
