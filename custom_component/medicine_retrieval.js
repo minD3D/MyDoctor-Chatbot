@@ -74,10 +74,11 @@ module.exports = {
             var originalUrl = medicine_name[0].originalurl;
             var imgUrl = medicine_name[0].imgurl;
 
-            var recid = conversation.payload().recipient.id;
+            // var recid = conversation.payload().recipient.id;
+
 
             console.log('----------------------------------------------------------------------------------------------------------');
-            // console.log(conversation.reply().messagePayload);
+            console.log(conversation.payload());
             console.log('----------------------------------------------------------------------------------------------------------');
 
             // var _attachment_tem = {
