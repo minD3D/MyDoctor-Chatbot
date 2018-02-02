@@ -6,4 +6,4 @@ var Components = require('./components.js');
 var server = Components('/components');
 
 // Start the server listening..
-server.listen(process.env.SERVICE_PORT || 8800);
+server.listen(process.env.SERVICE_PORT || 8886);

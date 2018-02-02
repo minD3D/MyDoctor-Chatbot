@@ -62,3 +62,56 @@ states:
     transitions:
       return: "unresolved"    
   
+
+
+
+  ++++++++++++++++++
+  
+  
+  
+  
+  
+  
+  askMedicine:
+    component: "System.Output"
+    properties:
+      text: "약을 검색하시겠어요? \n약 이름을 입력해주세요."
+    transitions: {}
+  printMedicineName:
+    component: "MedicineRetrieval"
+    properties:
+     lastQuestion: "${iResult.value.query}"
+     medicines: 
+    transitions:
+     return: "printMedicineName"
+  searchHospital: 
+    component: "System.Text"
+    properties:
+      prompt: "병원을 검색합니다"
+      variable: ""
+    transitions: {}
+  askQuestion:
+    component: "System.Text"
+    properties:
+      prompt: "질문을 입력해주세요."
+      variable: "inputQuestion"
+    transitions: {}   
+  printFAQ:
+    component: "FAQRetrieval"
+    properties:
+      Questions: "${iResult.value}"
+    transitions:
+     return: "printFAQ"
+  findSymtoms:
+    component: "System.Text"
+    properties:
+      prompt: "증상을 검색합니다"
+      variable: ""
+    transitions: {}
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "이해하지 못했어요ㅠㅠ" 
+    transitions:
+      return: "startService"    
+  
