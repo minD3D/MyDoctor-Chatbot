@@ -1,5 +1,4 @@
 // import { stringify } from "querystring";
-
 "use strict"
 
 var Hangultest = require('../hangultest.js');
@@ -22,21 +21,9 @@ var medicine_name = [];
 var searching_medicine = '';
 
 function hitQuery(medicine_question) {
-
     return new Promise((resolve, reject) => {
-        //console.log(medicine_question+'*********************************');
-        //connection.query('SELECT * FROM medicine_list WHERE name ='+searching_medicine+'', 
-        //connection.query('SELECT * FROM medicine_list WHERE name = "'+ searching_medicine +'"'
         var sql = 'SELECT * FROM medicine_list WHERE synonyms like ' + "'%" + medicine_question + "%'";
         connection.query(sql, (err, rows) => {
-            //"SELECT * FROM medicine_list WHERE synonyms = "+ "%" + "'medicine_question'"
-            //console.log(rows);
-            //console.log('---WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
-            // if (err) {
-            //     reject();
-            //     throw err;
-            // }
-
             medicine_name = rows;
             console.log(rows);
 
@@ -62,21 +49,40 @@ module.exports = {
         // var _medicine_name = [];
         var medicine_question = conversation.messagePayload().text;
         var synonyms = Hangultest.hanguler(medicine_question);
-        console.log(medicine_question);
-        console.log(synonyms);
-
         var promise = hitQuery(synonyms).then(() => {
-            try {
-                conversation.reply({ text: JSON.stringify(medicine_name[0].name) + '의 정보가 궁금하시군요! 잠시만요~\n(컴포넌트에서 출력)'});
+            try {            
                 conversation.reply({ text: '[효능효과]\n' + medicine_name[0].efficacy + '\n' });
                 conversation.reply({ text: '[용법용량]\n' + medicine_name[0].howtouse + '\n' });
                 conversation.reply({ text: '[주의사항]\n' + medicine_name[0].precaution });
-                conversation.reply(FBTemplate.buttonFBT( '페이지 보기' , medicine_name[0].url , "자세히 보시겠어요?" ))
-                // function genericFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL )
+                
                 conversation.reply(FBTemplate.genericFBT( medicine_name[0].imageurl , medicine_name[0].name , medicine_name[0].efficacy,'자세히 보기',medicine_name[0].url ));
-                 
-                }
-            
+                
+                // //conversation.reply(FBTemplate.buttonFBT( '페이지 보기' , medicine_name[0].url , "자세히 보시겠어요?" ))
+                // // function genericFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL )
+                var inner =[FBTemplate.genrInnerFBT(medicine_name[0].imageurl , medicine_name[0].name , medicine_name[0].efficacy,'자세히 보기',medicine_name[0].url),
+                FBTemplate.genrInnerFBT(medicine_name[0].imageurl , medicine_name[0].name , medicine_name[0].efficacy,'자세히 보기',medicine_name[0].url),
+                FBTemplate.genrInnerFBT(medicine_name[0].imageurl , medicine_name[0].name , medicine_name[0].efficacy,'자세히 보기',medicine_name[0].url)];
+                conversation.reply(FBTemplate.cardFBT( inner ));
+                
+
+                conversation.reply({
+                    "text": "Here's a quick reply!",
+                    "quick_replies":[
+                      {
+                        "content_type":"text",
+                        "title":"Something Else",
+                        "payload":"페이로드"
+                      },
+                      {
+                        "content_type":"text",
+                        "title":"Something Else",
+                        "payload":"페이로드"
+                      }
+                    ]
+                  });
+                
+
+            }
             catch (e) { //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + medicine_question + '의 정보를 가져오지 못했어요. 죄송해요ㅠ' });
 
