@@ -1,0 +1,259 @@
+swagger: "2.0"
+info:
+  description: "This is swagger for custom component invocation interface."
+  version: "1.1.0"
+  title: "Swagger Custom Component Invocation v1.1"
+  termsOfService: "http://swagger.io/terms/"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: ""
+basePath: "/custom-components/samples-service/"
+consumes: ["application/json"]
+produces: ["application/json"]
+tags:
+- name: "components"
+  description: "Custom Components"
+paths:
+  /components:
+    x-swagger-router-controller: componentService
+    get:
+      tags:
+      - "components"
+      summary: "Get component service metadata"
+      description: "Get a list of all custom components available in this component service."
+      operationId: "listComponents"
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: "successful operation"
+          schema:
+            $ref: '#/definitions/ComponentServiceDef'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - basicAuth: []
+  /components/{componentName}:
+    x-swagger-router-controller: componentService
+    post:
+      tags:
+      - "components"
+      summary: "Invoke a custom component"
+      description: ""
+      operationId: "invokeComponent"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - name: componentName
+          in: path
+          description: component name to invoke
+          required: true
+          type: string
+        - name: requestBody
+          in: body
+          description: component invocation body
+          required: true
+          schema:
+            $ref: '#/definitions/RequestBody'
+      responses:
+        '200':
+          description: component invocation response
+          schema:
+            $ref: '#/definitions/ResponseBody'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: Unknown Component
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+securityDefinitions:
+  basicAuth:
+    type: basic
+definitions:
+  VariablesMap:
+    type: "object"
+    additionalProperties:
+      $ref: "#/definitions/Variable"
+  Variable:
+    type: "object"
+    required:
+      - entity
+    properties:
+      entity:
+        type: "boolean"
+      type:
+        type:
+        - "string"
+        - "object"
+      value:
+        type:
+        - "string"
+        - "object"
+        - "boolean"
+        - "array"
+        - "integer"
+        - "number"
+        - 'null'
+  Parent:
+    type: "object"
+    properties:
+      scope:
+        type: "string"
+      variables:
+        $ref: "#/definitions/VariablesMap"
+      parent:
+        $ref: "#/definitions/Parent"
+  ComponentServiceDef:
+    type: "object"
+    required:
+      - version
+      - components
+    properties:
+      version:
+        type: "string"
+      components:
+        type: "array"
+        items:
+          $ref: '#/definitions/ComponentDef'
+  ComponentDef:
+    type: "object"
+    required:
+      - name
+    properties:
+      name:
+        type: "string"
+      properties:
+        $ref: '#/definitions/Properties'
+      supportedActions:
+        type: "array"
+        items:
+          type: "string"
+  Properties:
+    type: "object"
+  ChannelConversation:
+    type: "object"
+    properties:
+      botId:
+        type: "string"
+      sessionId:
+        type: "string"
+      type:
+        type: "string"
+      userId:
+        type: "string"
+      sessionExpiryDuration:
+        type: "number"
+      channelId:
+        type: "string"
+  Message:
+    type: "object"
+    required:
+      - messagePayload
+      - retryCount
+      - tenantId
+      - createdOn
+      - id
+    properties:
+      messagePayload:
+        type: "object"
+      payload:
+        type: "object"
+      stateCount:
+        type: "number"
+      retryCount:
+        type: "number"
+      channelConversation:
+        $ref: "#/definitions/ChannelConversation"
+      componentResponse:
+        type: "object"
+      executionContext:
+        type: "string"
+      tenantId:
+        type: "string"
+      platformVersion:
+        type: "string"
+      createdOn:
+        type: "string"
+      type:
+        type: "string"
+      id:
+        type: "string"
+  Context:
+    type: "object"
+    properties:
+      variables:
+        $ref: "#/definitions/VariablesMap"
+      parent:
+        $ref: "#/definitions/Parent"
+  RequestBody:
+    type: "object"
+    required:
+    - "botId"
+    - "platformVersion"
+    - "context"
+    - "message"
+    properties:
+      botId:
+        type: "string"
+      platformVersion:
+        type: "string"
+      context:
+        $ref: "#/definitions/Context"
+      properties:
+        $ref: "#/definitions/Properties"
+      message:
+        $ref: "#/definitions/Message"
+  ResponseBody:
+    type: "object"
+    required:
+    - "platformVersion"
+    - "context"
+    - "keepTurn"
+    - "transition"
+    - "error"
+    - "modifyContext"
+    properties:
+      platformVersion:
+        type: "string"
+      context:
+        $ref: "#/definitions/Context"
+      messages:
+        type: "array"
+        items:
+          $ref: '#/definitions/Message'
+      action:
+        type: "string"
+      keepTurn:
+        type: "boolean"
+      transition:
+        type: "boolean"
+      error:
+        type: "boolean"
+      modifyContext:
+        type: "boolean"
+      callbackToken:
+        type: "string"
+  ErrorResponse:
+    type: "object"
+externalDocs:
+  description: "Find out more about Bots "
+  url: "http://www.oracle.com/bots"
