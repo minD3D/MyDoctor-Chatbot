@@ -87,23 +87,6 @@ module.exports = {
                 // generic 인자
                 // function genericFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL )
                 
-
-                
-                // conversation.reply({
-                //     "text": "Here's a quick reply!",
-                //     "quick_replies":[
-                //       {
-                //         "content_type":"text",
-                //         "title":"Something Else",
-                //         "payload":"페이로드"
-                //       },
-                //       {
-                //         "content_type":"text",
-                //         "title":"Something Else",
-                //         "payload":"페이로드"
-                //       }
-                //     ]
-                //   });
                 
 
             }
