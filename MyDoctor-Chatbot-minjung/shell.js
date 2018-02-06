@@ -29,7 +29,7 @@ module.exports = function(config)
         return allMetadata;
     },
 
-    /**
+    /**dd
      * Invokes the named component.
      *
      * componentName is the name of the component (as a string) [required].
