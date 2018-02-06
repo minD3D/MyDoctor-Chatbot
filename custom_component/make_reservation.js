@@ -34,6 +34,7 @@ module.exports = {
         "name": "MakeReservation",
         "properties": {
             "reservationDate": { "type": "string", "required": true }
+            // "myUserId": { "type": "string", "required": true }
         },
         "supportedActions": []
     }),
@@ -42,13 +43,11 @@ module.exports = {
         // 'mm/dd/yyyy hh:mm AM'
         var date = conversation.properties().reservationDate;
         // id of chatbot user
-        var userid = conversation.payload();
+        var userId = conversation.payload();
+
 
         console.log('---------------------------------------------------------------------------------------------');
-        console.log(date);
-        console.log('---------------------------------------------------------------------------------------------');
-        console.log('---------------------------------------------------------------------------------------------');
-        console.log(userid);
+        console.log(userId);
         console.log('---------------------------------------------------------------------------------------------');
 
         var promise = hitQuery(date).then(() => {
