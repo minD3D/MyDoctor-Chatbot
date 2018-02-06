@@ -3,22 +3,25 @@
 // var hangul = require('../hangul_processing/hangultest.js');
 var express = require('express');
 var mysql = require('mysql');
-var database = require('./pool.js');
+var getConnection = require('./pool.js');
 
 function hitQuery(date) {
     return new Promise((resolve, reject) => {
-        var sql = 'INSERT INTO reservation (user_id, dept_id, date) VALUES (1,2,' + date + ')';
+        var sql = 'INSERT INTO reservation (user_id, prof_id, date) VALUES (1,2,' + date + ')';
 
-        database.pool.query(sql, (err, rows) => {
-            // when data is null
-            if (err) {
-                reject(Error(err));
-            }
-            // when data is not null
-            else {
-                medicine_name = rows;
-                resolve();
-            }
+        getConnection((err, con) => {
+            if (err) { /* handle your error here */ }
+
+            con.query(sql, (err, rows) => {
+                if (err) {
+                    reject(Error(err));
+                }
+                else {
+                    resolve();
+                }
+                // con.release();
+            });
+
         });
     });
 }
@@ -33,8 +36,13 @@ module.exports = {
     }),
 
     invoke: (conversation, done) => {
-        var date = conversation.properties().reservationDate;
+        var date = conversation.properties().reservationDate.date;
         // id of chatbot user
+
+        console.log('-----------------------------------------------------------------------------------------');
+        console.log('' + date);
+        console.log('-----------------------------------------------------------------------------------------');
+
         var userid = conversation.payload();
 
         var promise = hitQuery(date).then(() => {
@@ -53,10 +61,6 @@ module.exports = {
             conversation.transition();
             done();
         });
-
-        console.log('-------------------------------------------------------------------');
-        console.log(userid);
-        console.log('-------------------------------------------------------------------');
 
 
     }

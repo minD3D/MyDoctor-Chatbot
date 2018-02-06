@@ -3,7 +3,7 @@
 var hangul = require('../hangul_processing/hangultest.js');
 var express = require('express');
 var mysql = require('mysql');
-var database = require('./pool.js');
+var getConnection = require('./pool.js');
 
 // array for searched medicine's info
 var medicine_name = [];
@@ -12,17 +12,25 @@ function hitQuery(GeneralMedicineName) {
     return new Promise((resolve, reject) => {
         var sql = 'SELECT * FROM medicine_list WHERE generalname like "' + GeneralMedicineName + '%"';
 
-        database.pool.query(sql, (err, rows) => {
-            // when data is null
-            if (err) {
-                reject(Error(err));
-            }
-            // when data is not null
-            else {
-                medicine_name = rows;
-                resolve();
-            }
+        getConnection((err, con) => {
+            if (err) { /* handle your error here */ }
+
+            con.query(sql, (err, rows) => {
+                // when data is null
+                if (err) {
+                    reject(Error(err));
+                }
+                // when data is not null
+                else {
+                    medicine_name = rows;
+                    resolve();
+
+                }
+                // con.release();
+            });
+
         });
+
     });
 }
 
@@ -53,7 +61,7 @@ module.exports = {
 
 
 
-            
+
             conversation.reply({
                 text: '약이름 : ' + name
             });
