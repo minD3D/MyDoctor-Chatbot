@@ -3,13 +3,13 @@
 // var hangul = require('../hangul_processing/hangultest.js');
 var express = require('express');
 var mysql = require('mysql');
-var getConnection = require('./pool.js');
+var database = require('./pool.js');
 
 function hitQuery(date) {
     return new Promise((resolve, reject) => {
         var sql = 'INSERT INTO reservation (user_id, prof_id, date) VALUES (1,2,' + date + ')';
 
-        getConnection((err, con) => {
+        database.getConnection((err, con) => {
             if (err) {
                 console.log('..............................Error in connecting........................................')
             }
@@ -39,12 +39,16 @@ module.exports = {
     }),
 
     invoke: (conversation, done) => {
-        var date = conversation.properties().reservationDate.date;
+        // 'mm/dd/yyyy hh:mm AM'
+        var date = conversation.properties().reservationDate;
         // id of chatbot user
-        var userid = conversation.payload().sender.id;
+        var userid = conversation.payload();
 
         console.log('---------------------------------------------------------------------------------------------');
-        console.log(conversation.payload().sender.id);
+        console.log(date);
+        console.log('---------------------------------------------------------------------------------------------');
+        console.log('---------------------------------------------------------------------------------------------');
+        console.log(userid);
         console.log('---------------------------------------------------------------------------------------------');
 
         var promise = hitQuery(date).then(() => {
@@ -57,7 +61,7 @@ module.exports = {
             done();
         }).catch(err => {
             conversation.reply({
-                text: '예약에 실패했습니다.' + userid + '...' + err
+                text: '예약에 실패했습니다....' + err
             });
 
             conversation.transition();
