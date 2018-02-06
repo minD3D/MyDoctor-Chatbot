@@ -4,7 +4,7 @@
 
 var express = require("express");
 var mysql = require('mysql');
-var facebookTemplate = require('../FacebookTemplate.js')
+var FBTemplate = require('../FacebookTemplate.js')
 var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 //    return respond(null, {status:'fail', message:'server down'});
 //}
 
-var FAQ_name = [];
+var FAQ_arr = [];
 var searching_FAQ = '';
 
 function hitQuery(FAQ_question) {
@@ -29,7 +29,7 @@ function hitQuery(FAQ_question) {
                 reject(new Error(err));
             }
             else{
-                FAQ_name = rows;
+                FAQ_arr = rows;
  
                 resolve();
             }
@@ -50,33 +50,35 @@ module.exports = {
     }),
 
     invoke: (conversation, done) => {
-        // var _FAQ_name = [];
+        // var _FAQ_arr = [];
         var FAQ_question = conversation.messagePayload().text;
         
         var promise = hitQuery(FAQ_question).then(() => {
             try{
-                conversation.reply({ text: '[질문]\n' + FAQ_name[0].Question + '\n' });
+                if(FAQ_arr.length==1|FAQ_arr.length==0){
+                    conversation.reply({ text: '[질문]\n' + FAQ_arr[0].Question + '\n' });    
+                    if(FAQ_arr[0].Answer!=null)
+                    conversation.reply({ text: '[답변]\n' + FAQ_arr[0].Answer + '\n' });
+                    //conversation.reply({ text: '[페이지보기]\n' + FAQ_arr[0].url });
+                }
+                else{
+                    conversation.reply({ text: FAQ_arr.length + '개의 관련 질문이 있어요.' });
+                    
+                    var inner=[]
+                    for(var i=0; i<FAQ_arr.length;){
+                        var hospital_imgurl='http://storage.iseverance.com/2013_obj_sev/top/logo_severance.gif';
+                            inner.push(FBTemplate.listInnerFBT( FAQ_arr[i].Question , FAQ_arr[i].Answer,FAQ_arr[i].url));
+                            i++;
+                            if(i==FAQ_arr.length|i==10) 
+                                conversation.reply(FBTemplate.listFBT(inner));
+                            
+                    }
+                    // var inner =[FBTemplate.genrInnerFBT(FAQ_arr[0].imageurl , FAQ_arr[0].name , FAQ_arr[0].efficacy,'자세히 보기',FAQ_arr[0].url),
+                    // FBTemplate.genrInnerFBT(FAQ_arr[1].imageurl , FAQ_arr[1].name , FAQ_arr[1].efficacy,'자세히 보기',FAQ_arr[1].url),
+                    // FBTemplate.genrInnerFBT(FAQ_arr[2].imageurl , FAQ_arr[2].name , FAQ_arr[2].efficacy,'자세히 보기',FAQ_arr[2].url)];
+                    
+                }
                 
-                if(FAQ_name[0].Answer!=null)
-                conversation.reply({ text: '[답변]\n' + FAQ_name[0].Answer + '\n' });
-                //conversation.reply({ text: '[페이지보기]\n' + FAQ_name[0].url });
-                conversation.reply({
-                    "attachment":{
-                        "type":"template",
-                        "payload":{
-                          "template_type":"button",
-                          "buttons":[
-                            {
-                              "type": "web_url",
-                              "url": FAQ_name[0].url,
-                              "title": "페이지 보기"
-                            }
-                          ]
-                        }
-                      }
-                });
-              
-            
             } catch(e){ //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + FAQ_question + '의 정보를 가져오지 못했어요. 죄송해요 :(' });
        
@@ -87,3 +89,4 @@ module.exports = {
         });
     }
 };
+
