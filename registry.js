@@ -1,8 +1,9 @@
 module.exports = {
   components: {
-    //custom component registry
-    'MedicineRetrieval' : require('./custom_component/medicine_retrieval'),
-    'MakeReservation' : require('./custom_component/make_reservation')
-    // 'Replier' : require('./custom_component/replier')
+    // FinancialBot
+    'MedicineRetrieval' : require('./Medicine/medicine_retrieval'),
+    'FAQRetrieval' : require('./FAQ/FAQ_retrieval'),
+    'FindHospitalRetrieval' : require('./Hospital/FindHospital_retrieval'),
+    'ProfessorInDeptRetrieval' : require('./Hospital/ProfessorInDept_retrieval')
   }
 };
