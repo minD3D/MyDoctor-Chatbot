@@ -86,9 +86,6 @@ module.exports = {
                 text: '자세한 정보 : ' + originalUrl
             });
 
-
-
-
             conversation.transition();
             done();
         }).catch(err => {
