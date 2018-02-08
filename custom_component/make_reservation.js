@@ -33,7 +33,10 @@ module.exports = {
     metadata: () => ({
         "name": "MakeReservation",
         "properties": {
-            "reservationDate": { "type": "string", "required": true }
+            "reservationDate": { "type": "string", "required": true },
+            "professorName": { "type": "string", "required": true },
+            "departmentName": { "type": "string", "required": true },
+            "diseaseName": { "type": "string", "required": true }
             // "myUserId": { "type": "string", "required": true }
         },
         "supportedActions": []

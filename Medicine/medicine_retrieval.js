@@ -1,7 +1,7 @@
 // import { stringify } from "querystring";
 "use strict"
 
-var Hangultest = require('../hangultest.js');
+var Hangultest = require('../hangul_processing/hangultest.js');
 var FBTemplate = require('../FacebookTemplate.js')
 var express = require("express");
 var mysql = require('mysql');

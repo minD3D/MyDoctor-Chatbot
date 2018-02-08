@@ -1,0 +1,2188 @@
+{
+   "actionList": [
+   ],
+   "chatbox": {
+      "active": true,
+      "build": 6,
+      "builder": {
+         "editCount": 61
+      },
+      "code": "Bank_Transaction_Interactive_With_Verify_Korean",
+      "id": 82,
+      "trashed": false
+   },
+   "displayList": [
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2FRZtC%2Fpm_B%2FpKf8M413YS8Btcr3RP2dv-gyLxjh6rGox4o-HA-6QpwLwg7MfCEmnp16bskkiv6r2BZe64ENBg5dxQ%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "logo:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>잘못된 승인 내역 신고하기</p>\n",
+                  "text": "잘못된 승인 내역 신고하기 ",
+                  "type": "markdown"
+               },
+               "id": "label:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>{inputMerchant}에서 사용하지 않으신 내역에 대해 처리를 도와드리겠습니다.</p>\n",
+                  "text": "{inputMerchant}에서 사용하지 않으신 내역에 대해 처리를 도와드리겠습니다. ",
+                  "type": "markdown"
+               },
+               "id": "label:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "type": "divider"
+               },
+               "id": "divider:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#333",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "height": "3px",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p><strong>날짜:</strong>    {inputDate}</p>\n<p><strong>상호명:</strong>    {inputMerchant}</p>\n<p><strong>상세정보:</strong>    {inputDescription}</p>\n<p><strong>금액:</strong> {inputAmount}</p>\n",
+                  "text": "**날짜:**    {inputDate}\n\n**상호명:**    {inputMerchant}\n\n**상세정보:**    {inputDescription}\n\n**금액:** {inputAmount}",
+                  "type": "markdown"
+               },
+               "id": "label:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "type": "divider"
+               },
+               "id": "divider:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#333",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "height": "3px",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>위의 보이는 정보를 기반으로, 잘못된 카드 승인을 신고 하시겠습니까?</p>\n",
+                  "text": "위의 보이는 정보를 기반으로, 잘못된 카드 승인을 신고 하시겠습니까?",
+                  "type": "markdown"
+               },
+               "id": "label:5",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "yesbutton:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "ReasonPane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "yesbutton:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "Customer clicked \"Yes\" to continue with inquiry.",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Yes",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "yesbutton:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "nobutton:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "RejectedPane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "nobutton:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "parameters": [
+                        {
+                           "name": "sent",
+                           "value": "false"
+                        }
+                     ],
+                     "trigger": "change",
+                     "type": "exitToBot"
+                  },
+                  {
+                     "elementTrigger": "nobutton:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "Customer clicked \"No\" to not continue with inquiry.",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "No",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "nobutton:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "StartPane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2FRZtC%2Fpm_B%2FpKf8M413YS8Btcr3RP2dv-gyLxjh6rGox4o-HA-6QpwLwg7MfCEmnp16bskkiv6r2BZe64ENBg5dxQ%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "logo:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "type": "divider"
+               },
+               "id": "divider:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#333",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "height": "3px",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p><strong>{inputDate} {inputDescription} {inputAmount}</strong></p>\n",
+                  "text": "**{inputDate} {inputDescription} {inputAmount}**",
+                  "type": "markdown"
+               },
+               "id": "label:6",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "type": "divider"
+               },
+               "id": "divider:4",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#333",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "height": "3px",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "enabled": true,
+                     "eventTrigger": "appSent",
+                     "id": "outReason",
+                     "trigger": "onLoad",
+                     "type": "setElementValue",
+                     "value": "none"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesPhotoButton:7"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "overcharge",
+                     "type": "showElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesbutton:2"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "overcharge",
+                     "type": "hideElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesbutton:2"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "unrecognized",
+                     "type": "showElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesbutton:2"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "cancelled",
+                     "type": "showElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesbutton:2"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "duplicate",
+                     "type": "showElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesbutton:2"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "none",
+                     "type": "showElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesPhotoButton:7"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "unrecognized",
+                     "type": "hideElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesPhotoButton:7"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "cancelled",
+                     "type": "hideElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesPhotoButton:7"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "duplicate",
+                     "type": "hideElements"
+                  },
+                  {
+                     "elementTrigger": "outReason",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "yesPhotoButton:7"
+                     ],
+                     "trigger": "value",
+                     "triggerValue": "none",
+                     "type": "hideElements"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "inline": false,
+                  "label": "Please select the option below that best describes the reason for your inquiry:",
+                  "loadOptionsFromAction": false,
+                  "options": [
+                     {
+                        "label": "이 거래를 한 적이 없습니다.",
+                        "since": 0,
+                        "value": "생성하지 않은 거래"
+                     },
+                     {
+                        "label": "취소 했던 카드 거래 입니다.",
+                        "since": 0,
+                        "value": "취소된 거래"
+                     },
+                     {
+                        "label": "두번 이상의 같은 거래가 생성 되었습니다.",
+                        "since": 0,
+                        "value": "중복 승인"
+                     },
+                     {
+                        "label": "금액이 이상합니다",
+                        "since": 0,
+                        "value": "금액 상이"
+                     },
+                     {
+                        "label": "위의 어떤것도 아닙니다.",
+                        "since": 0,
+                        "value": "그외의 이유"
+                     }
+                  ],
+                  "required": false,
+                  "selectedIcon": "fa-check-circle",
+                  "type": "radio",
+                  "unselectedIcon": "fa-circle-o"
+               },
+               "id": "outReason",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "12px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "showRequiredIcon": false
+               }
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "yesbutton:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Verify Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "yesbutton:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "parameters": [
+                        {
+                           "name": "sent",
+                           "value": "true"
+                        },
+                        {
+                           "name": "reason",
+                           "value": "{outReason}"
+                        },
+                        {
+                           "name": "disputeID",
+                           "value": "9823645"
+                        }
+                     ],
+                     "trigger": "change",
+                     "type": "exitToBot"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Submit Dispute",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "yesbutton:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "showRequiredIcon": false
+               }
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "yesPhotoButton:7",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Photo Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "yesPhotoButton:7",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "parameters": [
+                        {
+                           "name": "sent",
+                           "value": "true"
+                        },
+                        {
+                           "name": "reason",
+                           "value": "{outReason}"
+                        },
+                        {
+                           "name": "disputeID",
+                           "value": "9823645"
+                        }
+                     ],
+                     "trigger": "change",
+                     "type": "exitToBot"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Submit Dispute",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "yesPhotoButton:7",
+               "initiallyEnabled": true,
+               "initiallyVisible": false,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "showRequiredIcon": false
+               }
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "nobutton:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "RejectedPane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "nobutton:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "parameters": [
+                        {
+                           "name": "sent",
+                           "value": "false"
+                        }
+                     ],
+                     "trigger": "change",
+                     "type": "exitToBot"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Cancel",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "nobutton:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "showRequiredIcon": false
+               }
+            }
+         ],
+         "id": "ReasonPane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2Fdopq%2F0aF_%2FoRBggFl4k03CE5fITG_MWjl5ZgP_nBCmAuKMCmqQMsTLZn2ijWCDhNPws-2flFLJPj-YjVrqgMZA1A%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "logo:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "100px",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>감사합니다.</p>\n<p>빠른 시일 내에 연락드리겠습니다.</p>\n",
+                  "text": "감사합니다. \n\n빠른 시일 내에 연락드리겠습니다.",
+                  "type": "markdown"
+               },
+               "id": "label:4",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "25%",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "AcceptedPane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2Fdopq%2F0aF_%2FoRBggFl4k03CE5fITG_MWjl5ZgP_nBCmAuKMCmqQMsTLZn2ijWCDhNPws-2flFLJPj-YjVrqgMZA1A%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "logo:4",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "100px",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>좋은 하루 되십시오.</p>\n",
+                  "text": "좋은 하루 되십시오. ",
+                  "type": "markdown"
+               },
+               "id": "label:7",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "25%",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "RejectedPane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2Fdopq%2F0aF_%2FoRBggFl4k03CE5fITG_MWjl5ZgP_nBCmAuKMCmqQMsTLZn2ijWCDhNPws-2flFLJPj-YjVrqgMZA1A%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "image:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "100px",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>어디로 연락을 드려야 할지 알려주세요.</p>\n",
+                  "text": "어디로 연락을 드려야 할지 알려주세요. ",
+                  "type": "markdown"
+               },
+               "id": "label:9",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "10%",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "80%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "enabled": true,
+                     "eventTrigger": "appSent",
+                     "id": "singleLineInput:4",
+                     "trigger": "onLoad",
+                     "type": "setElementValue",
+                     "value": "2815 Eastlake Ave E , Suite #135"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "주소",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": "",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:4",
+               "initiallyEnabled": false,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "전화번호",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": " (855) 641-3831",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:5",
+               "initiallyEnabled": false,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "enabled": true,
+                     "eventTrigger": "appSent",
+                     "id": "singleLineInput:6",
+                     "trigger": "onLoad",
+                     "type": "setElementValue",
+                     "value": "info@chatbox.com"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "이메일",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": "",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:6",
+               "initiallyEnabled": false,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "AcceptedPane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "button:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "Customer confirmed contact information.",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Confirm",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Edit Verify Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Edit",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "rgba(147, 181, 71, 1)",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "rgba(255, 255, 255, 1)",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "Verify Pane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2Fdopq%2F0aF_%2FoRBggFl4k03CE5fITG_MWjl5ZgP_nBCmAuKMCmqQMsTLZn2ijWCDhNPws-2flFLJPj-YjVrqgMZA1A%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "image:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "100px",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>더 정보가 필요할 경우, 어디로 연락드려야 하는지 알려주세요.</p>\n",
+                  "text": "더 정보가 필요할 경우, 어디로 연락드려야 하는지 알려주세요. ",
+                  "type": "markdown"
+               },
+               "id": "label:15",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "10%",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "80%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "enabled": true,
+                     "eventTrigger": "appSent",
+                     "id": "singleLineInput:1",
+                     "trigger": "onLoad",
+                     "type": "setElementValue",
+                     "value": "2815 Eastlake Ave E , Suite #135"
+                  },
+                  {
+                     "elementTrigger": "singleLineInput:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "{value}",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "주소",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": "",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "singleLineInput:2",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "{value}",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "전화번호",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": " (855) 641-3831",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:2",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "enabled": true,
+                     "eventTrigger": "appSent",
+                     "id": "singleLineInput:3",
+                     "trigger": "onLoad",
+                     "type": "setElementValue",
+                     "value": "info@chatbox.com"
+                  },
+                  {
+                     "elementTrigger": "singleLineInput:3",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "{value}",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "customerCanEdit": true,
+                  "label": "이메일",
+                  "labelInline": false,
+                  "maxLength": 256,
+                  "placeholder": "",
+                  "required": false,
+                  "type": "singleLineInput"
+               },
+               "id": "singleLineInput:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#ccc",
+                  "borderRadius": "4px",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:3",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "AcceptedPane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  },
+                  {
+                     "elementTrigger": "button:3",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "message": "Customer saved new contact information.",
+                     "trigger": "change",
+                     "type": "postAuditTrail"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Save",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:4",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Verify Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Cancel",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:4",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "rgba(147, 181, 71, 1)",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "rgba(255, 255, 255, 1)",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "Edit Verify Pane"
+      },
+      {
+         "allowDismiss": false,
+         "elementList": [
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "src": "/upload/s3?k=public%2FO12%2Fschema%2Fdopq%2F0aF_%2FoRBggFl4k03CE5fITG_MWjl5ZgP_nBCmAuKMCmqQMsTLZn2ijWCDhNPws-2flFLJPj-YjVrqgMZA1A%3D%3D%2Fimages.png",
+                  "type": "image"
+               },
+               "id": "image:3",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "left",
+                  "width": "90%"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "100px",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+               ],
+               "detail": {
+                  "generatedHtml": "<p>영수증이 있다면, 첨부 해 주세요.</p>\n",
+                  "text": "영수증이 있다면, 첨부 해 주세요. ",
+                  "type": "markdown"
+               },
+               "id": "label:17",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "10%",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "80%"
+               },
+               "since": 0,
+               "tooltip": ""
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "upload:1",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "ids": [
+                        "button:5"
+                     ],
+                     "trigger": "change",
+                     "type": "enableElements"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonText": "Select Photo",
+                  "customerCanEdit": true,
+                  "filesizeLimit": 10000000,
+                  "imagesOnly": false,
+                  "label": "Please take a photo of your receipt",
+                  "maxHeight": 200,
+                  "maxWidth": 300,
+                  "required": false,
+                  "showFilename": false,
+                  "showPreview": true,
+                  "type": "upload",
+                  "uploaderLabel": ""
+               },
+               "id": "upload:1",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#333",
+                  "borderRadius": "0px",
+                  "borderStyle": "dashed",
+                  "borderWidth": "1px",
+                  "color": "#333333",
+                  "elementClass": "",
+                  "fontSize": "13px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "100%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "requiredErrorClass": "requiredElementError",
+                  "requiredErrorMessage": "This field is required",
+                  "showRequiredIcon": false
+               }
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:5",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Verify Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "Accept",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:5",
+               "initiallyEnabled": false,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "#93b547",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "#FFFFFF",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": "",
+               "validation": {
+                  "additionalValidation": "none",
+                  "required": false,
+                  "showRequiredIcon": false
+               }
+            },
+            {
+               "actionList": [
+                  {
+                     "elementTrigger": "button:6",
+                     "enabled": true,
+                     "eventTrigger": "valueChanged",
+                     "pane": "Verify Pane",
+                     "trigger": "change",
+                     "type": "activatePane"
+                  }
+               ],
+               "detail": {
+                  "agentCanEdit": false,
+                  "agentMasked": false,
+                  "buttonClass": "InteractiveButton",
+                  "customerCanEdit": true,
+                  "label": "No receipt",
+                  "required": false,
+                  "type": "button"
+               },
+               "id": "button:6",
+               "initiallyEnabled": true,
+               "initiallyVisible": true,
+               "innerStyles": {
+                  "backgroundColor": "rgba(147, 181, 71, 1)",
+                  "borderColor": "#333",
+                  "borderRadius": "3px",
+                  "borderStyle": "solid",
+                  "borderWidth": "0px",
+                  "color": "rgba(255, 255, 255, 1)",
+                  "elementClass": "",
+                  "fontSize": "14px",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "labelClass": "",
+                  "textAlign": "center"
+               },
+               "outerStyles": {
+                  "marginBottom": "12px",
+                  "marginLeft": "0",
+                  "marginRight": "0",
+                  "marginTop": "0",
+                  "paddingBottom": "0",
+                  "paddingLeft": "0",
+                  "paddingRight": "0",
+                  "paddingTop": "0",
+                  "width": "50%"
+               },
+               "since": 0,
+               "tooltip": ""
+            }
+         ],
+         "id": "Photo Pane"
+      }
+   ],
+   "externalDataList": [
+      {
+         "allowWrite": false,
+         "id": "inputDate",
+         "path": "date",
+         "prefetch": true,
+         "source": "param"
+      },
+      {
+         "allowWrite": false,
+         "id": "inputDescription",
+         "path": "description",
+         "prefetch": true,
+         "source": "param"
+      },
+      {
+         "allowWrite": false,
+         "id": "inputAmount",
+         "path": "amount",
+         "prefetch": true,
+         "source": "param"
+      },
+      {
+         "allowWrite": false,
+         "id": "inputMerchant",
+         "path": "merchant",
+         "prefetch": true,
+         "source": "param"
+      }
+   ],
+   "general": {
+      "author": "Unknown",
+      "created": "Fri Apr 21 2017",
+      "icon": "/upload/s3?k=public%2FO12%2Fschema%2FQQsf%2FbKvj%2FvS9h9cNcJ2cMUlWKYunXZ1ZhcXpxWXtl5ZNOeerOeqhEbCtFmwycG1C7alRZVDH09QcMoazeXotuGg%3D%3D%2Fimages.png",
+      "internalDescription": "Interactive for banking demo OMCS",
+      "inviteMessageList": [
+         "Dispute a transaction: {link}"
+      ],
+      "name": "Bank Transaction Interactive With Verify Korean",
+      "previewIcon": "/upload/s3?k=public%2FO12%2Fschema%2FgZd2%2Fz2Fh%2FsTVHW1zh1VKvV0m7HMSBmEIb2bNKkqmru214ZGgcX9dNo_MGcNgU0lveOMzY5epcVDms061t-1d7rw%3D%3D%2Fimages.png",
+      "previewText": "Standard Bank: Credit Card Transaction Dispute"
+   },
+   "snippetList": [
+   ],
+   "version": 6
+}
