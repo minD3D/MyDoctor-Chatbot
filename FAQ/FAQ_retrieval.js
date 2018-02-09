@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1q2w3e4r5t',
-    database: 'MedicineData'
+    database: 'myDoctor'
 });
 
 //if(connection.state === 'disconnected'){
@@ -69,9 +69,11 @@ module.exports = {
                         var hospital_imgurl='http://storage.iseverance.com/2013_obj_sev/top/logo_severance.gif';
                             inner.push(FBTemplate.listInnerFBT( FAQ_arr[i].Question , FAQ_arr[i].Answer,FAQ_arr[i].url));
                             i++;
-                            if(i==FAQ_arr.length|i==10) 
+                            if(i==FAQ_arr.length-1|(i%4==0&&i!=0)){
                                 conversation.reply(FBTemplate.listFBT(inner));
-                            
+                                inner=[];
+                            } 
+                                
                     }
                     // var inner =[FBTemplate.genrInnerFBT(FAQ_arr[0].imageurl , FAQ_arr[0].name , FAQ_arr[0].efficacy,'자세히 보기',FAQ_arr[0].url),
                     // FBTemplate.genrInnerFBT(FAQ_arr[1].imageurl , FAQ_arr[1].name , FAQ_arr[1].efficacy,'자세히 보기',FAQ_arr[1].url),

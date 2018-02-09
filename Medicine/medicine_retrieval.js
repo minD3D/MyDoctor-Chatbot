@@ -1,7 +1,7 @@
 // import { stringify } from "querystring";
 "use strict"
 
-var Hangultest = require('../hangultest.js');
+var Hangultest = require('../hangul_processing/hangultest.js');
 var FBTemplate = require('../FacebookTemplate.js')
 var express = require("express");
 var mysql = require('mysql');
@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1q2w3e4r5t',
-    database: 'MedicineData'
+    database: 'myDoctor'
 });
 
 //if(connection.state === 'disconnected'){

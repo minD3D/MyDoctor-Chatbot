@@ -15,10 +15,10 @@ var connection = mysql.createConnection({
 var Hospital_arr = [];
 var searching_Hospital = '';
 
-function hitQuery(disease_name) {
+function hitQuery(professor_name) {
     return new Promise((resolve, reject) => {
-        //select * from professors where dept_id = (select dept_id from diseases where name = '대장항문외과') or dept_id in (select dept_id from professors where major like '%대장항문외과%');
-        var sql = 'SELECT * FROM professors WHERE major like ' +"'%" + disease_name +"%'";
+        //select * from professors where dept_id = (select dept_id from professors where name = '대장항문외과') or dept_id in (select dept_id from professors where major like '%대장항문외과%');
+        var sql = 'SELECT * FROM professors WHERE name like ' +"'%" + professor_name +"%'";
         connection.query(sql, (err, rows) => {
             Hospital_arr = rows;
             console.log(rows);
@@ -33,43 +33,41 @@ function hitQuery(disease_name) {
 module.exports = {
 
     metadata: () => ({
-        "name": "FindHospitalRetrieval",
+        "name": "FindProfessorRetrieval",
         "properties": {
-            "disease": { "type": "string", "required": true }
+            "professor": { "type": "string", "required": true }
         },
         "supportedActions": []
     }),
 
     invoke: (conversation, done) => {
         // var _Hospital_arr = [];
-        var disease_name = conversation.messagePayload().text;
-        var promise = hitQuery(disease_name).then(() => {
+        var professor_name = conversation.messagePayload().text;
+        var promise = hitQuery(professor_name).then(() => {
             try {            
                 if(Hospital_arr.length==1|Hospital_arr.length==0){
-                    conversation.reply({ text:  disease_name +'을 진료하는 의사를 추천해드릴게요' });
+                    
                     conversation.reply(FBTemplate.genericTwoFBT(Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major, '자세히 보기', Hospital_arr[0].purl, '예약하기'));    
- 
                 }
                 else{
-                    conversation.reply({ text: Hospital_arr.length + '명의 담당 교수님이 있습니다.' });
+                    conversation.reply({ text: Hospital_arr.length + '명의 교수님이 있습니다.' });
                     
                     var inner=[]
                     for(var i=0; i<Hospital_arr.length;){
                         if(Hospital_arr[i].imageurl!='undefined')
                             inner.push(FBTemplate.genrInnerTwoFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기'));
-                        i++;
-                         if(i==Hospital_arr.length|i==10)
+                            i++;
+                            if(i==Hospital_arr.length|i==10)
                             conversation.reply(FBTemplate.cardFBT( inner ));
                        }
-                       conversation.reply({ text: '예약을 진행하시겠어요?' });
-                       
                     
                 }
-                
             
+
             }
             catch (e) { //db에서 null값을 가져올 경우
-                conversation.reply({ text: '요청하신 ' + disease_name + '의 정보를 가져오지 못했어요. 죄송해요ㅠ' });
+                conversation.reply({ text: '요청하신 ' + professor_name + '의 정보를 가져오지 못했어요. 죄송해요ㅠ' });
+
             }
             conversation.transition();
             done();

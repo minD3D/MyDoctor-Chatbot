@@ -158,6 +158,47 @@ genrInnerFBT: function genrInnerFBT(genericImgUrl, genericTitile, genericSubtiti
 
 
 
+  //url버튼 1개, postback버튼 1개 조합
+  genrInnerTwoFBT: function genrInnerTwoFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd){
+    //입력된 부분을 generic 템플릿 형식으로 변환
+  
+    function genericInnerTwoTemplate(imgurl, title, subtitle, buttonname, buttonurl, buttonname2nd){
+      
+      var reply = {                      
+                      "title": title,
+                      "image_url": refineUrl(imgurl),
+                      "subtitle": subtitle,
+                      // "default_action": {
+                      //   "type": "web_url",
+                      //   "url": buttonurl,
+                      //   "messenger_extensions": true,
+                      //   "webview_height_ratio": "tall",
+                      //   "fallback_url": buttonurl
+                      // },
+                      "buttons":[
+                            {
+                              "type":"web_url",
+                              "url": buttonurl,
+                              "title":buttonname
+                            },{
+                              "type":"postback",
+                              "title": buttonname2nd,
+                              "payload": title
+                            }    
+ 
+                          ]}
+      
+    return reply
+  }
+    
+    return genericInnerTwoTemplate(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd);
+  },
+
+
+  ////
+
+
+
 
 
 
@@ -179,29 +220,28 @@ genrInnerFBT: function genrInnerFBT(genericImgUrl, genericTitile, genericSubtiti
     
   
 
-buttonFBT: function buttonFBT(buttonName, buttonURL, buttonText){
+buttonFBT: function buttonFBT(text, input){
   //입력된 부분을 button 템플릿 형식으로 변환
-  function buttonTemplate(name, url, text){
       var reply =  {
             "attachment":{
                 "type":"template",
                 "payload":{
                   "template_type":"button",
                   "text": text,
-                  "buttons":[
-                    {
-                      "type": "web_url",
-                      "url": url,
-                      "title": name
-                    }
-                  ]
+                  "buttons": input
                 }
               }
         }
-      return reply
-    }
-      
-    return buttonTemplate(buttonName,buttonURL, buttonText);
+      return reply      
+},
+buttonInnerFBT: function buttonInnerFBT(buttonName , payload){
+  //입력된 부분을 button 템플릿 형식으로 변환
+      var reply =  {
+              "type": "postback",
+              "title": buttonName,
+              "payload": payload
+          }
+      return reply      
 },
 
 listFBT: function listFBT(input){
