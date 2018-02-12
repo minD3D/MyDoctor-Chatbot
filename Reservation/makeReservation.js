@@ -34,7 +34,7 @@ module.exports = {
         "properties": {
             "reservationDate": { "type": "string", "required": true },
             "professorName": { "type": "string", "required": true },
-            "departmentName": { "type": "string", "required": true },
+            "subjectName": { "type": "string", "required": true },
             "diseaseName": { "type": "string", "required": true },
             "userName":  { "type": "string", "required": true },
             "userPhone": { "type": "string", "required": true }
@@ -47,7 +47,7 @@ module.exports = {
         // 'mm/dd/yyyy hh:mm AM'
         var date = conversation.properties().reservationDate;
         var doctor = conversation.properties().professorName;
-        var dept = conversation.properties().departmentName;
+        var dept = conversation.properties().subjectName;
         var disease = conversation.properties().diseaseName;
         var name = conversation.properties().userName;
         var phone = conversation.properties().userPhone;
