@@ -47,7 +47,7 @@ module.exports = {
             try {            
                 if(Hospital_arr.length==1|Hospital_arr.length==0){
                     
-                    conversation.reply(FBTemplate.genericTwoFBT(Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major, '자세히 보기', Hospital_arr[0].purl, '예약하기'));    
+                    conversation.reply(FBTemplate.genericTwopayFBT(Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major, '자세히 보기', Hospital_arr[0].purl, '예약하기',  Hospital_arr[0].dept_id+','+ Hospital_arr[0].name));    
                 }
                 else{
                     conversation.reply({ text: Hospital_arr.length + '명의 교수님이 있습니다.' });
@@ -55,7 +55,7 @@ module.exports = {
                     var inner=[]
                     for(var i=0; i<Hospital_arr.length;){
                         if(Hospital_arr[i].imageurl!='undefined')
-                            inner.push(FBTemplate.genrInnerTwoFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기'));
+                            inner.push(FBTemplate.genrInnerTwopayFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기',  Hospital_arr[i].dept_id+','+ Hospital_arr[i].name));
                             i++;
                             if(i==Hospital_arr.length|i==10)
                             conversation.reply(FBTemplate.cardFBT( inner ));

@@ -93,6 +93,8 @@ module.exports = {
             catch (e) { //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + dept_name + '의 정보를 가져오지 못했어요. 죄송해요 :(' });
 
+                conversation.transition();
+                done();
             }
             conversation.transition();
             done();
