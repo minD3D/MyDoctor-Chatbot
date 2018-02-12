@@ -3,7 +3,7 @@ var express = require("express");
 
 module.exports = {
     metadata: () => ({
-        "name": "SetProfessorInDept",
+        "name": "SetProfessorInOther",
         "properties": {
             "professor_result": { "type": "string", "required": true }
         },
@@ -12,11 +12,11 @@ module.exports = {
 
     invoke: (conversation, done) => {
         var returnpayload = conversation.messagePayload().postback;
-        //var returnarr = returnpayload.split(',');
+        var returnarr = returnpayload.split(',');
         
-        conversation.reply({ text:  returnpayload+'교수님께 예약하시겠어요?' });
-        conversation.variable("professorName", returnpayload);
-        //conversation.variable("subjectName", returnarr[0]);
+        conversation.reply({ text: returnarr[1]+'교수님께 예약하시겠어요?' });
+        conversation.variable("professorName", returnarr[1]);
+        conversation.variable("subjectName", returnarr[0]);
         
         conversation.transition();
         done();

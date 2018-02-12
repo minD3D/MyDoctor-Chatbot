@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1q2w3e4r5t',
-    database: 'medicineData'
+    database: 'myDoctor'
 });
 
 
@@ -46,9 +46,8 @@ module.exports = {
         var promise = hitQuery(professor_name).then(() => {
             try {            
                 if(Hospital_arr.length==1|Hospital_arr.length==0){
-                    conversation.reply({ text: '[병명]\n' + Hospital_arr[0].name });
-                    conversation.reply(FBTemplate.genericFBT( Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major,'자세히 보기',Hospital_arr[0].purl ));
                     
+                    conversation.reply(FBTemplate.genericTwopayFBT(Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major, '자세히 보기', Hospital_arr[0].purl, '예약하기',Hospital_arr[0].dept_id+','+Hospital_arr[0].name));    
                 }
                 else{
                     conversation.reply({ text: Hospital_arr.length + '명의 교수님이 있습니다.' });
@@ -56,7 +55,7 @@ module.exports = {
                     var inner=[]
                     for(var i=0; i<Hospital_arr.length;){
                         if(Hospital_arr[i].imageurl!='undefined')
-                            inner.push(FBTemplate.genrInnerFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl));
+                            inner.push(FBTemplate.genrInnerTwopayFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기',Hospital_arr[0].dept_id+','+Hospital_arr[0].name));
                             i++;
                             if(i==Hospital_arr.length|i==10)
                             conversation.reply(FBTemplate.cardFBT( inner ));

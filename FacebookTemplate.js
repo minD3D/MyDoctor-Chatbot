@@ -92,6 +92,43 @@ genericTwoFBT: function genericTwoFBT(genericImgUrl, genericTitile, genericSubti
 },
 
 
+genericTwopayFBT: function genericTwopayFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd, genericButtonpay2nd ){
+  //입력된 부분을 generic 템플릿 형식으로 변환
+
+  function genericTwoTemplate(imgurl, title, subtitle, buttonname, buttonurl, buttonname2nd, buttonpayload){
+
+    var reply = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type":"generic",
+                "elements":[
+                   {
+                    "title": title,
+                    "image_url": refineUrl(imgurl),
+                    "subtitle": subtitle,
+                    "buttons":[
+                        {
+                            "type":"web_url",
+                            "url": buttonurl,
+                            "title":buttonname
+                          },{
+                            "type":"postback",
+                            "title": buttonname2nd,
+                            "payload": buttonpayload
+                          }    
+                        ]
+                    }]      
+                  
+              }
+        }
+    }
+  return reply
+}
+  
+  return genericTwoTemplate(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd, genericButtonpay2nd );
+},
+
 genrInnerFBT: function genrInnerFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL ){
     //입력된 부분을 generic 템플릿 형식으로 변환
   
@@ -115,6 +152,84 @@ genrInnerFBT: function genrInnerFBT(genericImgUrl, genericTitile, genericSubtiti
     
     return genericInnerTemplate(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL );
   },
+
+
+  //url버튼 1개, postback버튼 1개 조합
+  genrInnerTwoFBT: function genrInnerTwoFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd){
+    //입력된 부분을 generic 템플릿 형식으로 변환
+  
+    function genericInnerTwoTemplate(imgurl, title, subtitle, buttonname, buttonurl, buttonname2nd){
+      
+      var reply = {                      
+                      "title": title,
+                      "image_url": refineUrl(imgurl),
+                      "subtitle": subtitle,
+                      // "default_action": {
+                      //   "type": "web_url",
+                      //   "url": buttonurl,
+                      //   "messenger_extensions": true,
+                      //   "webview_height_ratio": "tall",
+                      //   "fallback_url": buttonurl
+                      // },
+                      "buttons":[
+                            {
+                              "type":"web_url",
+                              "url": buttonurl,
+                              "title":buttonname
+                            },{
+                              "type":"postback",
+                              "title": buttonname2nd,
+                              "payload": title
+                            }    
+ 
+                          ]}
+      
+    return reply
+  }
+    
+    return genericInnerTwoTemplate(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd);
+  },
+
+
+  //url버튼 1개, postback버튼 1개 조합
+  genrInnerTwopayFBT: function genrInnerTwopayFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd, genericButtonpay2nd){
+    //입력된 부분을 generic 템플릿 형식으로 변환
+  
+    function genericInnerTwoTemplate(imgurl, title, subtitle, buttonname, buttonurl, buttonname2nd, buttonpayload){
+      
+      var reply = {                      
+                      "title": title,
+                      "image_url": refineUrl(imgurl),
+                      "subtitle": subtitle,
+                      // "default_action": {
+                      //   "type": "web_url",
+                      //   "url": buttonurl,
+                      //   "messenger_extensions": true,
+                      //   "webview_height_ratio": "tall",
+                      //   "fallback_url": buttonurl
+                      // },
+                      "buttons":[
+                            {
+                              "type":"web_url",
+                              "url": buttonurl,
+                              "title":buttonname
+                            },{
+                              "type":"postback",
+                              "title": buttonname2nd,
+                              "payload": buttonpayload
+                            }    
+ 
+                          ]}
+      
+    return reply
+  }
+    
+    return genericInnerTwoTemplate(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL, genericButtonName2nd, genericButtonpay2nd);
+  },
+
+
+  ////
+
 
 
   //url버튼 1개, postback버튼 1개 조합

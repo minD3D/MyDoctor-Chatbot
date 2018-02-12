@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1q2w3e4r5t',
-    database: 'medicineData'
+    database: 'myDoctor'
 });
 
 
@@ -59,9 +59,7 @@ module.exports = {
         var promise = hitQuery(dept_name).then(() => {
             try {            
                 if(Hospital_arr.length==1|Hospital_arr.length==0){
-                    conversation.reply({ text: '[교수명]\n' + Hospital_arr[0].name });
-                    conversation.reply(FBTemplate.genericTwoFBT( Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major,'자세히 보기', Hospital_arr[0].purl,'예약하기' ));
-                    
+                    conversation.reply(FBTemplate.genericTwoFBT( Hospital_arr[0].pimg , Hospital_arr[0].name , Hospital_arr[0].major,'자세히 보기', Hospital_arr[0].purl,'예약하기')); 
                 }
                 else{
                     conversation.reply({ text: Hospital_arr.length + '명의 의료진이 기다리고 있습니다!\n선택해주세요 B)' });
@@ -90,7 +88,6 @@ module.exports = {
                     
                 }
                 
-            
             }
             catch (e) { //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + dept_name + '의 정보를 가져오지 못했어요. 죄송해요 :(' });
