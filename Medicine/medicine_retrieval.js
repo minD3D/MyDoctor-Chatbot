@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'Sidomari93',
-    database: 'medicine_test'
+    password: '1208',
+    database: 'chatbot3'
 });
 
 //if(connection.state === 'disconnected'){
@@ -50,31 +50,31 @@ module.exports = {
         var medicine_question = conversation.messagePayload().text;
         var synonyms = Hangultest.hanguler(medicine_question);
         var promise = hitQuery(synonyms).then(() => {
-            try {            
+            try {
                 if(medicine_arr.length==1|medicine_arr.length==0){
                     conversation.reply({ text: '[효능효과]\n' + medicine_arr[0].efficacy + '\n' });
                     conversation.reply({ text: '[용법용량]\n' + medicine_arr[0].howtouse + '\n' });
                     conversation.reply({ text: '[주의사항]\n' + medicine_arr[0].precaution });
                     conversation.reply(FBTemplate.genericFBT( medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url ));
-                    
+
                 }
                 else{
                     conversation.reply({ text: medicine_arr.length + '개의 약이있어요.' });
-                    
+
                     var inner=[]
                     for(var i=0; i<medicine_arr.length;){
                         if(medicine_arr[i].imageurl!='undefined'){
                             inner.push(FBTemplate.genrInnerFBT(medicine_arr[i].imageurl , medicine_arr[i].name , medicine_arr[i].efficacy,'자세히 보기',medicine_arr[i].url));
                             if(i==9){break;}
-                        }   
+                        }
                             i++;
-                     
+
                         conversation.reply(FBTemplate.cardFBT( inner ));
                        }
-                    
+
                 }
-                
-               
+
+
 
             }
             catch (e) { //db에서 null값을 가져올 경우
@@ -124,7 +124,7 @@ module.exports = {
 //         connection.query(sql, (err, rows) => {
 
 //                 medicine_arr = rows;
-//                 resolve();  
+//                 resolve();
 //         });
 //         // connection.release();
 //     });
@@ -144,7 +144,7 @@ module.exports = {
 
 //     invoke: (conversation, done) => {
 //         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        
+
 //         // var _medicine_arr = [];
 //         var medicine_question = conversation.messagePayload().text;
 //         var synonyms = Hangultest.hanguler(medicine_question);
@@ -170,10 +170,10 @@ module.exports = {
 //                 conversation.reply({ text: '[효능효과]\n' + JSON.stringify(medicine_arr[0].efficacy) + '\n' });
 //                 conversation.reply({ text: '[용법용량]\n' + JSON.stringify(medicine_arr[0].howtouse) + '\n' });
 //                 conversation.reply({ text: '[주의사항]\n' + JSON.stringify(medicine_arr[0].precaution) });
-            
+
 //             } catch(e){ //db에서 null값을 가져올 경우
 //                 conversation.reply({ text: '요청하신 ' + medicine_question + '의 정보를 가져오지 못했어요. 죄송해요 :(' });
-       
+
 //             }
 //             //conversation.transition();
 //             done();

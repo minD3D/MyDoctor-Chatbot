@@ -9,11 +9,11 @@ var server = Components('/components');
 var request = require('request');
 
 // Start the server listening..
-server.listen(process.env.SERVICE_PORT || 8886);
+server.listen(process.env.SERVICE_PORT || 8800);
 
 
 
-// 각자 Bot에 맞는 page access token을 넣어준다. 
+// 각자 Bot에 맞는 page access token을 넣어준다.
 var PAGE_ACCESS_TOKEN = 'EAAVTuvplHKgBADp2AG3OkSk4MJfyARIfjQ96Vyr725ZCZAxmdCoIZBSViCfkUqPGkAdZBLB4oF8QkMxNrNfjYgiBS5GM6pU0npgZCS7vMvLIA4cU6XiOIQpBSvVKEcevglzqZBWLluqzIkmaKeg5ZCy5KuiZCudxeu4kHl7LfOUiZCKvyI15n1j0jppZCXxZBIbSKYZD';
 
 
@@ -39,12 +39,10 @@ function facebookThreadAPI(jsonFile, cmd){
             // Print out the response body
             console.log(cmd+": Updated.");
             console.log(body);
-        } else { 
+        } else {
             // TODO: Handle errors
             console.log(cmd+": Failed. Need to handle errors.");
             console.log(body);
         }
     });
 }
-
-
