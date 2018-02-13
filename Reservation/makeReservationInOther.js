@@ -69,20 +69,15 @@ module.exports = {
         console.log(phone);
         console.log(user_id);
         console.log('---------------------------------------------------------------------------------------------');
-        
+        conversation.variable("isReservation", "false"); //예약 플로우를 초기상태로
         var promise = setReservation(user_id,doctor,dept,date,name,phone).then(() => {
-            conversation.reply({
-                text: '예약이 완료되었습니다.'
-            });
-
+            conversation.reply({ text: '예약이 완료되었습니다.'});
             // 대화를 다시 돌림
             conversation.transition();
             done();
         }).catch(err => {
-            conversation.reply({
-                text: '예약에 실패했습니다....' + err
-            });
-
+            conversation.reply({text: '예약에 실패했습니다....' + err});
+            
             conversation.transition();
             done();
         });

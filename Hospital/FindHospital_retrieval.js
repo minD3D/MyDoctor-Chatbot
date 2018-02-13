@@ -66,7 +66,8 @@ module.exports = {
                     
                 }
                 
-            
+                conversation.reply({ text: '예약을 진행하시겠어요? \n예약하시려면 예약하기 버튼을 눌러주세요:)' });
+                
             }
             catch (e) { //db에서 null값을 가져올 경우
                 conversation.reply({ text: '요청하신 ' + disease_name + '의 정보를 가져오지 못했어요. 죄송해요ㅠ' });
