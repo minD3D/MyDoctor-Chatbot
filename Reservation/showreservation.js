@@ -8,8 +8,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: '1q2w3e4r5t',
-    database: 'myDoctor'
+    password: 'Sidomari93',
+    database: 'medicine_test'
 });
 
 //if(connection.state === 'disconnected'){

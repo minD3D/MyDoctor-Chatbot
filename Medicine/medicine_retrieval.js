@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: '1q2w3e4r5t',
-    database: 'myDoctor'
+    password: 'Sidomari93',
+    database: 'medicine_test'
 });
 
 //if(connection.state === 'disconnected'){
@@ -63,31 +63,18 @@ module.exports = {
                     
                     var inner=[]
                     for(var i=0; i<medicine_arr.length;){
-                        if(medicine_arr[i].imageurl!='undefined')
+                        if(medicine_arr[i].imageurl!='undefined'){
                             inner.push(FBTemplate.genrInnerFBT(medicine_arr[i].imageurl , medicine_arr[i].name , medicine_arr[i].efficacy,'자세히 보기',medicine_arr[i].url));
+                            if(i==9){break;}
+                        }   
                             i++;
-                            if(i==medicine_arr.length|i==10)
-                            conversation.reply(FBTemplate.cardFBT( inner ));
+                     
+                        conversation.reply(FBTemplate.cardFBT( inner ));
                        }
-                    // var inner =[FBTemplate.genrInnerFBT(medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url),
-                    // FBTemplate.genrInnerFBT(medicine_arr[1].imageurl , medicine_arr[1].name , medicine_arr[1].efficacy,'자세히 보기',medicine_arr[1].url),
-                    // FBTemplate.genrInnerFBT(medicine_arr[2].imageurl , medicine_arr[2].name , medicine_arr[2].efficacy,'자세히 보기',medicine_arr[2].url)];
                     
                 }
                 
-                // //generic ex
-                // conversation.reply(FBTemplate.genericFBT( medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url ));
-                // //button ex
-                // conversation.reply(FBTemplate.buttonFBT( '페이지 보기' , medicine_arr[0].url , "자세히 보시겠어요?" ))
-                // //card ex
-                // var inner =[FBTemplate.genrInnerFBT(medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url),
-                // FBTemplate.genrInnerFBT(medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url),
-                // FBTemplate.genrInnerFBT(medicine_arr[0].imageurl , medicine_arr[0].name , medicine_arr[0].efficacy,'자세히 보기',medicine_arr[0].url)];
-                // conversation.reply(FBTemplate.cardFBT( inner ));
-                // generic 인자
-                // function genericFBT(genericImgUrl, genericTitile, genericSubtitile, genericButtonName, genericButtonURL )
-                
-                
+               
 
             }
             catch (e) { //db에서 null값을 가져올 경우
