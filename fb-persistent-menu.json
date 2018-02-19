@@ -1,0 +1,21 @@
+{
+    "setting_type" : "call_to_actions",
+    "thread_state" : "existing_thread",
+    "call_to_actions":[
+      {
+        "type":"postback",
+        "title":"병원예약",
+        "payload":"병원예약"
+      },
+      {
+        "type":"postback",
+        "title":"약검색",
+        "payload":"약검색"
+      },
+      {
+        "type":"postback",
+        "title":"FAQ",
+        "payload":"FAQ"
+      }
+    ]
+}

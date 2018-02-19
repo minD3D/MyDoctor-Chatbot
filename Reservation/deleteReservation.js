@@ -53,14 +53,14 @@ module.exports = {
         var promise = hitQuery(user_id).then(() => {
             try{
                 if(show_arr.affectedRows == 0){
-                    conversation.reply({ text: '예약 된게 없습니다.\n' });
+                    conversation.reply({ text: '예약하신 정보가 없어요\n' });
                 }
                 else{
-                conversation.reply({ text: '예약 취소완료.\n' });
+                conversation.reply({ text: '예약 취소가 완료되었어요!\n' });
                 }
 
             } catch(e){ //db에서 null값을 가져올 경우
-                conversation.reply({ text: '에러 발생.' });
+                conversation.reply({ text: '예약취소 과정에 오류가 생겼습니다\n다시 시도해주세요~' });
             }
 
             conversation.transition();

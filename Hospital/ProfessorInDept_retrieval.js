@@ -46,6 +46,9 @@ module.exports = {
 
     invoke: (conversation, done) => {
         // var _Hospital_arr = [];
+        
+        console.log(conversation.messagePayload().text+'!!!');
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         var dept_name='';
         try{
             //System.List 진료과 버튼 클릭 받아오기 
@@ -53,7 +56,10 @@ module.exports = {
 
         } catch(e){
             //사용자가 직접 진료과를 입력
-            dept_name = conversation.messagePayload().text;
+            dept_name = conversation.nlpResult().entityMatches().DepartmentName1[0];
+            console.log( conversation.nlpResult().entityMatches().DepartmentName1[0] +'!!!');
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            
         }
         conversation.variable("subjectName", dept_name); 
         var promise = hitQuery(dept_name).then(() => {

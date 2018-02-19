@@ -59,7 +59,7 @@ module.exports = {
                 conversation.reply({ text: show_arr[0].u_name + '님께서는 ' + show_arr[0].d_name + show_arr[0].p_name + '교수님으로 \n' + show_arr[0].date + '에 예약 되셨습니다.\n' });
              
             } catch(e){ 
-                conversation.reply({ text: '예약 된게 없습니다.' });
+                conversation.reply({ text: '예약 된게 없습니다' });
             }
 
             conversation.transition();

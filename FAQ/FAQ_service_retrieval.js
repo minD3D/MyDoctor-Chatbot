@@ -62,12 +62,8 @@ module.exports = {
         var faq_index = faq_string.slice(3);
 
         var promise = hitQuery(faq_index).then(() => {
-            conversation.reply({
-                text: 'Q: ' + faqData[0].Question
-            });
-            conversation.reply({
-                text: 'A: ' + faqData[0].Answer
-            });
+            conversation.reply({text: 'Q: ' + faqData[0].Question});
+            conversation.reply({text: 'A: ' + faqData[0].Answer});
 
             conversation.transition();
             done();

@@ -11,7 +11,6 @@ var connection = mysql.createConnection({
     database: 'myDoctor'
 });
 
-
 var Hospital_arr = [];
 var searching_Hospital = '';
 

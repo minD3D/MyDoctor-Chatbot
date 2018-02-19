@@ -7,7 +7,7 @@ var database = require('./pool.js');
 
 function setReservation(user_id,doctor,dept,date,name,phone) {
     return new Promise((resolve, reject) => {
-        var sql = 'INSERT INTO reservation (user_id, prof_id, dept_id, date, name, phone) VALUES (\''+user_id+'\',(select p.id from professors p where p.name= \''+doctor+'\'),(select d.id from department d where d.name=\''+dept+'\'),\''+date+'\',\''+name+'\',\''+phone+'\');';
+        var sql = 'INSERT INTO reservation (user_id, prof_id, dept_id, date, name, phone) VALUES (\''+user_id+'\',(select p.id from professors p where p.name= \''+doctor+'\'),(select d.id from department d where d.name like \''+dept+'%\'),\''+date+'\',\''+name+'\',\''+phone+'\');';
         database.getConnection((err, con) => {
             if (err) {
                 console.log('..............................Error in connecting........................................')
@@ -70,7 +70,7 @@ module.exports = {
 
         var promise = setReservation(user_id,doctor,dept,date,name,phone).then(() => {
             conversation.reply({
-                text: '예약이 완료되었습니다.'
+                text: '예약이 완료되었습니다\n'
             });
 
             // 대화를 다시 돌림
