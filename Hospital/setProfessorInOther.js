@@ -12,7 +12,10 @@ module.exports = {
 
     invoke: (conversation, done) => {
         try {            
+
             var returnpayload = conversation.messagePayload().postback;
+            console.log("ddddddddddddddddddddddddddddddddddddddddddddddddd!!!!!!!!!!!!!!!!!!dd");
+            console.log(returnpayload);
             var returnarr = returnpayload.split(',');
             conversation.reply({ text: returnarr[1]+'교수님께 예약하시겠어요?' });
             conversation.variable("professorName", returnarr[1]);

@@ -7,8 +7,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'Sidomari93',
-    database: 'medicine_test'
+    password: '1208',
+    database: 'chatbot3'
 });
 
 

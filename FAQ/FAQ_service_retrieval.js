@@ -17,7 +17,7 @@ var database = require('../Reservation/pool.js');
 var faqData = [];
 function hitQuery(faqIndex) {
     return new Promise((resolve, reject) => {
-        var sql = 'SELECT * FROM faq WHERE id=' + faqIndex;
+        var sql = 'SELECT * FROM faq_list WHERE id=' + faqIndex;
 
         
         database.getConnection((err, con) => {

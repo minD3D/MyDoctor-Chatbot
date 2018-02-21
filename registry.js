@@ -12,6 +12,7 @@ module.exports = {
     'SetProfessorInOther' : require('./Hospital/setProfessorInOther'),
     'StartServiceRetrieval' : require('./StartEnd/startServiceRetrieval'),
     'UndefinedServiceRetrieval' : require('./StartEnd/undefinedServiceRetrieval'),
+    'Swear' : require('./StartEnd/Swear'),
     'DeleteReservation' : require('./Reservation/deleteReservation'),
     'ShowReservation' : require('./Reservation/showReservation')
   }

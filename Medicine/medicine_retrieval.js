@@ -68,9 +68,9 @@ module.exports = {
                             if(i==9){break;}
                         }
                             i++;
-
+                    }
                         conversation.reply(FBTemplate.cardFBT( inner ));
-                       }
+                      // }
 
                 }
 

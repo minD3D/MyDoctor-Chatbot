@@ -8,8 +8,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'Sidomari93',
-    database: 'medicine_test'
+    password: '1208',
+    database: 'chatbot3'
 });
 
 //if(connection.state === 'disconnected'){
@@ -21,7 +21,7 @@ var show_arr = [];
 function hitQuery(user_id) {
 
     return new Promise((resolve, reject) => {
-        var sql = 'select r.name as u_name, (select d.name from department d where d.id= r.dept_id) as d_name, (select p.name from professors p where p.id= r.prof_id) as p_name, r.date from reservation r where r.user_id ='+user_id+';';
+        var sql = 'select r.user_name as u_name, (select d.name from department d where d.id= r.dept_id) as d_name, (select p.name from professors p where p.id= r.prof_id) as p_name, r.date from reservation r where r.user_id ='+user_id+';';
         connection.query(sql, (err, rows) => {
             if(err){
                 reject(new Error(err));

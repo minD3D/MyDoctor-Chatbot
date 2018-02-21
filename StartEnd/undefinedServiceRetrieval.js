@@ -15,7 +15,7 @@ module.exports = {
 
 
         console.log('==================시작버튼 포스트백==========================');
-        console.log(conversation.payload().postback.title);
+      //  console.log(conversation.payload().postback.title);
         //console.log(conversation.payload().postback.payload);
         //conversation.reply(conversation.payload().postback.payload);
 
@@ -23,21 +23,21 @@ module.exports = {
 
         //만약 이 챗봇과 처음 대화하는 사람이라면 이 안내문구를 보냄. 
         //fb_persistent_menu.json의 페이로드 가져옴. 
-        if(conversation.payload().postback.payload =='first_chat_started'){
+        //  if(conversation.payload().postback.payload =='first_chat_started'){
             
-            conversation.reply("반갑습니다! \nMyDoctor에서는 병원 예약 부터 약 검색까지 각종 의료 서비스를 제공해드립니다. B)");
+        //      conversation.reply("반갑습니다! \nMyDoctor에서는 병원 예약 부터 약 검색까지 각종 의료 서비스를 제공해드립니다. B)");
 
-            var inner=[]
-            inner.push(FBTemplate.buttonInnerFBT( "병원예약", "병원예약"));
-            inner.push(FBTemplate.buttonInnerFBT( "약검색", "약검색"));
-            inner.push(FBTemplate.buttonInnerFBT( "FAQ" , "FAQ"));
-            conversation.reply(FBTemplate.buttonFBT("무엇을 도와드릴까요?",inner));
-            conversation.transition();
-            done();
-        }
+        //      var inner=[];
+        //      inner.push(FBTemplate.buttonInnerFBT( "병원예약", "병원예약"));
+        //      inner.push(FBTemplate.buttonInnerFBT( "약검색", "약검색"));
+        //      inner.push(FBTemplate.buttonInnerFBT( "FAQ" , "FAQ"));
+        //      conversation.reply(FBTemplate.buttonFBT("무엇을 도와드릴까요?",inner));
+        //      conversation.transition();
+        //      done();
+        //  }
 
 
-        else{
+ //       else{
             var randomReply = Math.floor((Math.random() * 10));
             var replyConversation=[
                 "무슨말인지 모르겠어요ㅠㅠ\n이중에 원하시는 기능이 있나요?",
@@ -59,6 +59,6 @@ module.exports = {
 
             conversation.transition();
             done();
-        }
+ //       }
     }
 };

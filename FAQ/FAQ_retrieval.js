@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
     // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
-    password: 'Sidomari93',
-    database: 'medicine_test'
+    password: '1208',
+    database: 'chatbot3'
 });
 
 //if(connection.state === 'disconnected'){
@@ -23,7 +23,7 @@ var searching_FAQ = '';
 function hitQuery(FAQ_question) {
 
     return new Promise((resolve, reject) => {
-        var sql = 'SELECT * FROM FAQ_list WHERE Question like ' +"'%" + FAQ_question+"%'";
+        var sql = 'SELECT * FROM faq_list WHERE Question like ' +"'%" + FAQ_question+"%'";
         connection.query(sql, (err, rows) => {
             if(err){
                 reject(new Error(err));
