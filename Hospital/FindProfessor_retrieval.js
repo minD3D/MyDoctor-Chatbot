@@ -52,14 +52,24 @@ module.exports = {
                     conversation.reply({ text: Hospital_arr.length + '명의 교수님이 있습니다.' });
                     
                     var inner=[]
-                    for(var i=0; i<Hospital_arr.length;){
-                        if(Hospital_arr[i].imageurl!='undefined')
-                            inner.push(FBTemplate.genrInnerTwopayFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기',  Hospital_arr[i].dept_id+','+ Hospital_arr[i].name));
-                            i++;
-                            if(i==Hospital_arr.length|i==10)
-                            conversation.reply(FBTemplate.cardFBT( inner ));
-                       }
+                        for(var i=0; i<Hospital_arr.length;){
+
+                        if(Hospital_arr[i].imageurl!='undefined'){
+                            //inner.push(FBTemplate.genrInnerFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl));
+                            //genrInnerTwoFBT
+                            inner.push(FBTemplate.genrInnerTwoFBT(Hospital_arr[i].pimg , Hospital_arr[i].name , Hospital_arr[i].major, '자세히 보기', Hospital_arr[i].purl, '예약하기'));
                     
+                            if(i==9){ break; } //10명이상이면 더보기 버튼 or 대화로 의료진 리스트 링크 줌. 
+                            
+                        }
+                        
+                        i++;
+                            // if(i==Hospital_arr.length|i==10)
+                            // conversation.reply(FBTemplate.cardFBT( inner ));
+                    }
+
+                    conversation.reply(FBTemplate.cardFBT( inner ));
+                
                 }
             
                 conversation.reply({ text: '예약을 진행하시겠어요? \n예약하시려면 예약하기 버튼을 눌러주세요:)' });
